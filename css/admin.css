@@ -1,0 +1,28 @@
+ul.nav.nav-pills.nav-stacked.nav-dungeon > li > a {
+	border-radius: 0;
+	color: #778291;
+	padding: 12px 15px;
+}
+
+ul.nav.nav-pills.nav-stacked.nav-dungeon > li > a:hover {
+	color: #444d5a;
+}
+
+ul.nav.nav-pills.nav-stacked.nav-dungeon > li.active > a {
+	color: #ffffff;
+	font-weight: bold;
+}
+
+ul.nav.nav-pills.nav-stacked.nav-dungeon > li.active > a:hover {
+	color: #dbe7f1;
+}
+
+.nav-stacked.nav-dungeon > li + li {
+	border-top: 1px solid #f1f1f1;
+	margin-top: 0;
+}
+
+.space {
+	display: block;
+	height: 15px;
+}

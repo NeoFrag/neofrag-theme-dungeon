@@ -1,0 +1,1484 @@
+@import url(http://fonts.googleapis.com/css?family=Hind:400,300,700);
+
+body {
+	background-image: url('<?php echo $NeoFrag->config->dungeon_background ? path($NeoFrag->config->dungeon_background) : '../images/backgrounds/default.jpg'; ?>');
+	background-position: <?php echo $NeoFrag->config->dungeon_background_position; ?>;
+	background-repeat: <?php echo $NeoFrag->config->dungeon_background_repeat; ?>;
+	background-attachment: <?php echo $NeoFrag->config->dungeon_background_attachment; ?>;
+	background-color: <?php echo color2hex($NeoFrag->config->dungeon_background_color); ?>;
+	color: <?php echo $NeoFrag->config->dungeon_font_color ? color2hex($NeoFrag->config->dungeon_font_color) : '#777777'; ?>;
+	font-size: <?php echo $NeoFrag->config->dungeon_font_size ? $NeoFrag->config->dungeon_font_size : '14px'; ?>;
+	font-family: 'Hind', sans-serif;
+	line-height: 1.6;
+}
+
+* {
+	-webkit-transition: color 250ms ease-out, background 250ms ease-out, opacity 250ms ease-out;
+	-moz-transition: color 250ms ease-out, background 250ms ease-out, opacity 250ms ease-out;
+	-o-transition: color 250ms ease-out, background 250ms ease-out, opacity 250ms ease-out;
+	transition: color 250ms ease-out, background 250ms ease-out, opacity 250ms ease-out;
+}
+
+a {
+	color: #383d40;
+}
+
+a:hover, a:focus {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	text-decoration: none;
+}
+
+.well {
+	box-shadow: none;
+}
+
+.crop {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+img.media-object, .img-avatar-members {
+	border-radius: 100%;
+}
+
+/* Label */
+
+.label {
+	font-family: 'Hind', sans-serif;
+	font-size: 12px;
+	font-weight: 500;
+	padding: 0.3em 0.5em;
+}
+
+.popover-content .label {
+	line-height: 2.5;
+}
+
+.label.label-default {
+	background-color: #383d40;
+}
+
+/* Boutons */
+
+.btn+.btn {
+	margin-left: 5px;
+}
+
+.btn {
+	border: 0 none;
+	border-radius: 4px;
+	background-position: bottom center;
+	background-repeat: repeat-x;
+	background-image: url('../images/shadow.png');
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 14px 18px 17px;
+}
+
+.btn.btn-link {
+	background-image: none;
+}
+
+.module .panel-default .btn-link {
+	color: #575b5c !important;
+}
+
+.module .panel-default .btn-link:hover {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?> !important;
+	text-decoration: none;
+}
+
+.btn-xs {
+	padding: 4px 9px 6px;
+}
+
+.btn.btn-default {
+	background-color: #f0f0f0 !important;
+	color: #575b5c;
+}
+
+.btn.btn-default.active {
+	background-color: #383d40 !important;
+	color: #fff;
+}
+
+.btn.btn-primary {
+	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?> !important;
+	color: #fff;
+}
+
+.btn.btn-default:hover,
+.btn.btn-default:focus,
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+	background-color: #383d40 !important;
+	color: #fff;
+}
+
+a.thumbnail:hover,
+a.thumbnail:focus {
+	border-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+/* Header */
+
+header > .header-banner {
+	background-image: url('<?php echo $NeoFrag->config->dungeon_header ? path($NeoFrag->config->dungeon_header) : '../images/headers/default.jpg'; ?>');
+	background-position: <?php echo $NeoFrag->config->dungeon_header_position; ?>;
+	background-repeat: <?php echo $NeoFrag->config->dungeon_header_repeat; ?>;
+	background-attachment: <?php echo $NeoFrag->config->dungeon_header_attachment; ?>;
+	background-color: <?php echo $NeoFrag->config->dungeon_header_color; ?>;
+	margin-top: <?php echo $NeoFrag->config->dungeon_navbar_display ? ' 53px' : '0'; ?>;
+}
+
+header > nav.navbar-default.navbar-user {
+	background: #fff;
+	border-top: none;
+	border-bottom: 1px solid #cac9c7;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+
+header > nav.navbar-default.navbar-user a.navbar-brand {
+	border-right: 1px solid #ebebeb;
+	color: #7F8386;
+	font-size: 28px;
+	padding: 13px 20px;
+}
+
+header > nav.navbar-default.navbar-user a.navbar-brand:hover {
+	color: #383D40;
+}
+
+header > nav.navbar-default.navbar-user .navbar-text {
+	color: #bbbfc2;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-left: 10px;
+	margin-top: 16px;
+	margin-bottom: 17px;
+}
+
+header > nav.navbar-default.navbar-user .navbar-text > a {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	text-decoration: none;
+}
+
+header > nav.navbar-default ul.navbar-account {
+	right: 0px;
+	margin-right: 0px;
+	position: absolute;
+}
+
+header > nav.navbar-default ul.navbar-account > li.login > a {
+	color: #383D40;
+	padding-top: 17px;
+	padding-left: 45px;
+	padding-right: 20px;
+	font-weight: bold;
+	font-size: 13px;
+	border-left: 1px solid #E8E8E8;
+}
+
+header > nav.navbar-default ul.navbar-account > li.login > a > i.fa {
+	color: #383D40;
+	opacity: 0.4;
+	font-size: 18px;
+	position: absolute;
+	margin-left: -28px;
+	margin-bottom: -4px;
+}
+
+header > nav.navbar-default ul.navbar-account > li.login > a:hover {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+header > nav.navbar-default ul.navbar-account > li.login > a > img {
+	max-height: 35px;
+	max-width: 35px;
+	position: absolute;
+	margin-top: -7px;
+	margin-left: -48px;
+}
+
+header > nav.navbar-default ul.navbar-account > li.active > a {
+	color: #fff;
+	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	padding-top: 18px;
+}
+
+header > nav.navbar-default ul.navbar-account > li.active > a:hover {
+	color: #fff;
+	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+header > nav.navbar-default ul.navbar-account > li.active > a > i.fa {
+	opacity: .5;
+}
+
+header > nav.navbar-default ul.navbar-account > li.active > a:hover > i.fa {
+	opacity: 1;
+}
+
+header .navbar-nav > li > .dropdown-menu {
+	border: 0px solid transparent;
+	min-width: 180px;
+	margin: 0;
+	padding: 0;
+}
+
+header .navbar-nav .dropdown-menu > li > a {
+	padding: 12px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #383D40;
+}
+
+header .navbar-nav .dropdown-menu > li > a > i.fa {
+	color: #858C90;
+	margin-right: 6px;
+}
+
+header .navbar-nav .dropdown-menu > li+li {
+	border-top: 1px solid #E8E8E8;
+}
+
+header .navbar-nav .dropdown-menu > li > a:hover,
+header .navbar-nav .dropdown-menu > li > a:focus {
+	color: #2C3031;
+}
+
+header .navbar-nav .dropdown-menu > li > a:hover > i.fa ,
+header .navbar-nav .dropdown-menu > li > a:focus > i.fa {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+ul.navbar-account span.caret {
+	margin-left: 10px;
+	color: #C5C8CD;
+}
+
+.widget-header {
+	margin-top: 135px;
+	margin-bottom: 100px;
+}
+
+.widget-header h2.site-title {
+	color: #fff;
+	font-size: 48px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.widget-header h5.site-description {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	font-size: 16px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+.widget-header img.header-logo {
+	max-height: 100px;
+}
+
+.widget-talks h4.media-heading > a {
+	text-transform: none;
+	font-size: 15px;
+}
+
+/* Navigation */
+
+header .widget-navigation ul.navbar-nav > li > a {
+	border-right: 1px solid #393d40;
+	font-size: 16px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding: 20px 26px;
+	color: #fff;
+}
+
+header .widget-navigation ul.navbar-nav > li > a:hover,
+header .widget-navigation ul.navbar-nav > li > a:focus {
+	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+header .widget-navigation ul.navbar-nav > li.active > a {
+	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+header .widget-navigation ul.navbar-nav > li.active > a > i.fa {
+	font-size: 14px;
+	margin-right: 6px;
+	opacity: .6;
+}
+
+header .widget-navigation ul.navbar-nav > li+li > a {
+	margin-right: 1px;
+}
+
+header .widget-navigation ul.navbar-nav {
+	float: none;
+}
+
+header > .header-banner .row-dark {
+	-moz-box-shadow: 6px -6px 0px 0px rgba(0,0,0,.2);
+	-webkit-box-shadow: 6px -6px 0px 0px rgba(0,0,0,.2);
+	-o-box-shadow: 6px -6px 0px 0px rgba(0,0,0,.2);
+	box-shadow: 6px -6px 0px 0px rgba(0,0,0,.2);
+}
+
+.row-dark .widget-navigation ul.navbar-nav {
+	background-color: #2c3031;
+}
+
+/* Widgets */
+
+.widget > .panel {
+	margin-bottom: 0;
+	background-position: bottom center;
+	background-repeat: repeat-x;
+	background-image: url('../images/shadow.png');
+	color: #fff;
+	border: none;
+	padding-bottom: 5px; 
+}
+
+.widget > .panel .panel-heading > h3.panel-title {
+	font-family: 'Hind', sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+
+.widget .media img {
+	border-radius: 100%;
+}
+
+.widget .media .media-body i.fa.fa-comment-o, .widget .media .media-body i.fa.fa-comments-o {
+	margin-left: 7px;
+}
+
+.widget h4.media-heading {
+	font-size: 13px;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.widget .list-group {
+	margin-bottom: 0;
+}
+
+.widget-talks .panel-footer {
+	padding: 15px;
+}
+
+.widget-forum ul.list-group > li.list-group-item > i.fa {
+	text-align: center;
+	width: 20px;
+}
+
+.widget .panel hr {
+	border-color: #fff;
+	opacity: 0.3;
+}
+
+.widget-slider .carousel-control i.fa {
+	font-size: 40px;
+	margin-top: 100%;
+}
+
+.widget-slider .carousel-inner .item h2 {
+	font-size: 36px;
+}
+
+.widget-slider .carousel-caption {
+	text-align: left;
+	padding: 15px 25px;
+	bottom: 55px;
+}
+
+.widget-slider .carousel-caption {
+	background-color: rgba(56,61,64,.3);
+}
+
+.widget-slider:hover .carousel-caption {
+	background-color: rgba(56,61,64,.7);
+}
+
+.widget-slider .carousel-indicators {
+	bottom: 7px;
+}
+	
+	/* panel-default */
+	
+	.widget .panel.panel-default {
+		background-color: #383D40;
+		color: #B4B4B4;
+	}
+	
+	.widget .panel.panel-default > .panel-heading {
+		background-color: #2C3031;
+		padding: 18px 20px;
+		background-position: bottom center;
+		background-repeat: repeat-x;
+		background-image: url('../images/shadow.png');
+	}
+	
+	.widget .panel.panel-default > .panel-heading > h3.panel-title {
+		color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	}
+	
+	.widget .panel.panel-default > .panel-heading > h3.panel-title > i.fa {
+		font-size: 26px;
+		color: #8F8F8D;
+		margin-right: 10px;
+		vertical-align: middle;
+	}
+	
+	.widget .panel.panel-default .list-group > .list-group-item {
+		background-color: #42474A;
+		border: 2px solid #383D40;
+		padding: 12px 15px 8px;
+	}
+	
+	.widget .panel.panel-default .list-group > .list-group-item:first-child {
+		border-top: 2px solid rgba(0,0,0,.13);
+	}
+	
+	.widget .panel.panel-default .list-group > .list-group-item:last-child {
+		border-top: 2px solid rgba(0,0,0,.13);
+	}
+	
+	.widget .panel.panel-default .list-group > .list-group-item > a, .widget .panel.panel-default .list-group > a.list-group-item {
+		color: #f0f0f0;
+	}
+	
+	.widget .panel.panel-default .list-group > .list-group-item > a:hover, .widget .panel.panel-default .list-group > a.list-group-item:hover {
+		color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	}
+	
+	.widget .panel.panel-default > .panel-body a {
+		color: #f0f0f0;
+	}
+	
+	.widget .panel.panel-default a:hover {
+		color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	}
+	
+	.widget .panel.panel-default .panel-footer {
+		background-color: #2c3031;
+		color: #f0f0f0;
+	}
+	
+	.widget .panel.panel-default .panel-footer a {
+		color: #89898b;
+	}
+	
+	.widget .panel.panel-default .panel-footer a:hover {
+		color: #fff;
+	}
+	
+	/* panel-header */
+	
+	.widget .panel.panel-header {
+		background-color: #383D40;
+		color: #B4B4B4;
+	}
+	
+	.widget .panel.panel-header > .panel-heading {
+		background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		padding: 18px 20px;
+		background-position: bottom center;
+		background-repeat: repeat-x;
+		background-image: url('../images/shadow.png');
+	}
+	
+	.widget .panel.panel-header > .panel-heading > h3.panel-title {
+		color: #fff;
+	}
+	
+	.widget .panel.panel-header > .panel-heading > h3.panel-title > i.fa {
+		font-size: 26px;
+		color: #fff;
+		opacity: 0.35;
+		margin-right: 10px;
+		vertical-align: middle;
+	}
+	
+	.widget .panel.panel-header .list-group > .list-group-item {
+		background-color: #42474A;
+		border: 2px solid #383D40;
+		padding: 12px 15px 8px;
+	}
+	
+	.widget .panel.panel-header .list-group > .list-group-item:first-child {
+		border-top: 2px solid rgba(0,0,0,.13);
+	}
+	
+	.widget .panel.panel-header .list-group > .list-group-item:last-child {
+		border-top: 2px solid rgba(0,0,0,.13);
+	}
+	
+	.widget .panel.panel-header .list-group > .list-group-item > a, .widget .panel.panel-header .list-group > a.list-group-item {
+		color: #f0f0f0;
+	}
+	
+	.widget .panel.panel-header .list-group > .list-group-item > a:hover, .widget .panel.panel-header .list-group > a.list-group-item:hover {
+		color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	}
+	
+	.widget .panel.panel-header > .panel-body a {
+		color: #f0f0f0;
+	}
+	
+	.widget .panel.panel-header a:hover {
+		color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	}
+	
+	.widget .panel.panel-header .panel-footer {
+		background-color: #2c3031;
+		color: #f0f0f0;
+	}
+	
+	.widget .panel.panel-header .panel-footer a {
+		color: #89898b;
+	}
+	
+	.widget .panel.panel-header .panel-footer a:hover {
+		color: #fff;
+	}
+	
+	/* panel-color */
+	
+	.widget .panel.panel-color {
+		background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		color: #fff;
+	}
+	
+	.widget .panel.panel-color > .panel-heading {
+		background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		padding: 20px 20px 16px;
+	}
+	
+	.widget .panel.panel-color > .panel-heading > h3.panel-title {
+		color: #fff;
+	}
+	
+	.widget .panel.panel-color > .panel-heading > h3.panel-title > i.fa {
+		font-size: 26px;
+		color: #fff;
+		opacity: 0.35;
+		margin-right: 10px;
+		vertical-align: middle;
+	}
+	
+	.widget .panel.panel-color .list-group > .list-group-item {
+		background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		border: 2px solid rgba(0,0,0,.13);
+		padding: 12px 15px 8px;
+	}
+	
+	.widget .panel.panel-color .list-group > .list-group-item:first-child {
+		border-top: 2px solid rgba(0,0,0,.13);
+	}
+	
+	.widget .panel.panel-color .list-group > .list-group-item:last-child {
+		border-top: 2px solid rgba(0,0,0,.13);
+	}
+	
+	.widget .panel.panel-color .list-group > .list-group-item > a, .widget .panel.panel-color .list-group > a.list-group-item {
+		color: #fff;
+		opacity: .75;
+	}
+	
+	.widget .panel.panel-color .list-group > .list-group-item > a:hover, .widget .panel.panel-color .list-group > a.list-group-item:hover {
+		opacity: 1;
+	}
+	
+	.widget .panel.panel-color .panel-footer {
+		background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		background-image: url('../images/shadow.png');
+		color: #f0f0f0;
+	}
+	
+	.widget .panel.panel-color a, .widget .panel.panel-color .panel-footer a {
+		color: #fff;
+	}
+	
+	.widget .panel.panel-color a:hover, .widget .panel.panel-color .panel-footer a:hover {
+		color: #2c3031;
+	}
+	
+	.widget .panel.panel-color small, .widget .panel.panel-color .text-muted {
+		color: #2c3031;
+	}
+	
+	.widget .panel.panel-color .btn.btn-primary {
+		background-color: #383d40 !important;
+		color: #fff;
+	}
+	
+	.widget .panel.panel-color .btn.btn-primary:hover {
+		background-color: #2c3031 !important;
+	}
+	
+	.widget.widget-teams .panel.panel-color .roster > .roster-name a:hover {
+		color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	}
+
+/* Breadcrumb */
+
+ol.breadcrumb {
+	background-color: #2c3031;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+
+ol.breadcrumb > li {
+	padding: 10px 0;
+}
+
+ol.breadcrumb > li > a {
+	color: #8f8f8d;
+}
+
+ol.breadcrumb > li.active > a > i.fa {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+ol.breadcrumb > li > a:hover {
+	color: #fff;
+}
+
+ol.breadcrumb > li.active > a {
+	color: #fff;
+}
+
+ol.breadcrumb > li:first-child {
+	padding-left: 15px;
+}
+
+ol.breadcrumb > li:last-child {
+	padding-right: 15px;
+}
+
+ol.breadcrumb > li + li::before {
+	padding: 0 12px;
+}
+
+/* Panels */
+
+.panel {
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.panel.panel-back {
+	background-color: transparent;
+}
+
+.panel > .panel-heading {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-color: transparent;
+}
+
+.module > .panel.panel-default {
+	border: none;
+	border-bottom: 1px solid #CBCBCB;
+}
+
+.module h3.panel-title {
+	font-family: 'Hind', sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+
+.panel > .panel-footer {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-color: transparent;
+}
+
+/* Panel news */
+
+.module-news .panel-box + .panel-box {
+	margin-top: 25px;
+}
+
+.panel-box {
+	background-color: #fff;
+	padding: 0;
+	border-bottom: 1px solid #CBCBCB;
+}
+
+.panel-box > .box-heading {
+	border-bottom: 5px solid #303435;
+}
+
+.panel-box > .box-heading .icon {
+	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: #fff;
+	display: table-cell;
+	width: 60px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 8px;
+	font-size: 24px;
+}
+
+.panel-box > .box-heading .title {
+	display: table-cell;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 'Hind', sans-serif;
+	padding-left: 25px;
+	color: #383d40;
+}
+
+.panel-box > .box-heading .comments {
+	background-color: #2C3031;
+	color: #fff;
+	display: table-cell;
+	width: 60px;
+	text-align: center;
+	padding-top: 8px;
+	padding-bottom: 6px;
+	font-size: 13px;
+}
+
+.panel-box > .box-heading .comments i.fa {
+	font-size: 16px;
+}
+
+.module-forum .panel-box > .box-heading .comments {
+	padding-top: 12px;
+	padding-bottom: 10px;
+}
+
+.module-forum .panel-box > .box-heading .comments i.fa {
+	font-size: 32px;
+}
+
+.module-forum .panel-box > .box-heading > .box-infos + .box-infos {
+	border-top: 2px solid #2C3031;
+}
+
+.module-members table.table h4.no-margin.text-uppercase {
+	text-transform: none;
+	font-weight: normal;
+}
+
+.module-members img.img-avatar-members-profil {
+	border-radius: 100%;
+}
+
+/* panel-dark pour les modules */
+	
+.module .panel.panel-dark {
+	background-color: #383D40;
+	color: #B4B4B4;
+}
+
+.module .panel.panel-dark > .panel-heading {
+	background-color: #2C3031;
+	padding: 18px 20px;
+	background-position: bottom center;
+	background-repeat: repeat-x;
+	background-image: url('../images/shadow.png');
+}
+
+.module .panel.panel-dark > .panel-heading > h3.panel-title {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+.module .panel.panel-dark > .panel-heading > h3.panel-title > i.fa {
+	font-size: 26px;
+	color: #8F8F8D;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+
+.module .panel.panel-dark .list-group > .list-group-item {
+	background-color: #42474A;
+	border: 2px solid #383D40;
+	padding: 12px 15px 8px;
+}
+
+.module .panel.panel-dark .list-group > .list-group-item:first-child {
+	border-top: 2px solid rgba(0,0,0,.13);
+}
+
+.module .panel.panel-dark .list-group > .list-group-item:last-child {
+	border-top: 2px solid rgba(0,0,0,.13);
+}
+
+.module .panel.panel-dark .list-group > .list-group-item > a, .widget .panel.panel-default .list-group > a.list-group-item {
+	color: #f0f0f0;
+}
+
+.module .panel.panel-dark .list-group > .list-group-item > a:hover, .module .panel.panel-dark .list-group > a.list-group-item:hover {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+.module .panel.panel-dark > .panel-body a {
+	color: #f0f0f0;
+}
+
+.module .panel.panel-dark a:hover {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+.module .panel.panel-dark .panel-footer {
+	background-color: #2c3031;
+	color: #f0f0f0;
+}
+
+.module .panel.panel-dark .panel-footer a {
+	color: #89898b;
+}
+
+.module .panel.panel-dark .panel-footer a:hover {
+	color: #fff;
+}
+
+.panel-box > .box-heading .autor {
+	background-color: #383D40;
+	color: #898989;
+	width: 100%;
+}
+
+.module-forum .panel-box > .box-heading .autor {
+	background: url('../images/bg_forum_icon.jpg') repeat-y;
+}
+
+.panel-box > .box-heading .autor .share {
+	border-radius: 5px;
+	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: #fff;
+	-moz-box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,.1);
+	-webkit-box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,.1);
+	-o-box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,.1);
+	box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,.1);
+}
+
+.panel-box > .box-heading .autor .share > span {
+	padding: 20px 0 14px 14px;
+	font-family: 'Hind', sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	display: inline-block;
+}
+
+.panel-box > .box-heading .autor .share i.fa {
+	border-radius: 5px;
+	background-color: #f0f0f0;
+	color: #898989;
+	padding: 14px 15px 18px 15px;
+	font-size: 22px;
+	margin-left: 13px;
+	-moz-box-shadow: inset 0px -3px 0px 0px rgba(0,0,0,.1);
+	-webkit-box-shadow: inset 0px -3px 0px 0px rgba(0,0,0,.1);
+	-o-box-shadow: inset 0px -3px 0px 0px rgba(0,0,0,.1);
+	box-shadow: inset 0px -3px 0px 0px rgba(0,0,0,.1);
+	position: relative;
+	margin-right: -5px;
+}
+
+.panel-box > .box-heading .autor .share.alt i.fa:hover {
+	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: #fff;
+}
+
+.panel-box > .box-heading .autor .share.alt i.fa {
+	margin-left: 0;
+}
+
+.share-content:hover .share {
+	opacity: 0;
+}
+
+.share-content .share.alt {
+	opacity: 0;
+	position: absolute;
+	margin-right: -5px;
+	margin-top: -54px;
+}
+
+.share-content:hover .share.alt {
+	opacity: 1;
+}
+
+.panel-box > .box-heading .autor ul.list-inline {
+	margin-left: 70px;
+	margin-bottom: 0;
+}
+
+.panel-box > .box-heading .autor ul.list-inline > li {
+	text-transform: uppercase;
+	font-size: 11px;
+	color: #898989;
+	font-weight: bold;
+	font-family: 'Hind', sans-serif;
+	padding: 20px 15px 13px;
+}
+
+.module-forum .panel-box > .box-heading .autor ul.list-inline > li {
+	padding: 11px 15px 7px;
+}
+
+.panel-box > .box-heading .autor ul.list-inline > li > i.fa {
+	font-size: 13px;
+	margin-right: 6px;
+}
+
+.panel-box > .box-heading .autor ul.list-inline > li a, .panel-box > .box-heading .autor ul.list-inline > li span.date {
+	color: #CECED0;
+	font-size: 14px;
+}
+
+.panel-box > .box-heading .autor ul.list-inline > li h4 a {
+	font-size: 16px;
+}
+
+.panel-box > .box-heading .autor ul.list-inline > li a:hover,
+.panel-box > .box-heading .autor ul.list-inline > li a:focus {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+.panel-box > .box-body {
+	padding: 20px 22px;
+}
+
+/* Modules */
+
+.module .panel-body {
+	padding: 20px 22px;
+}
+
+.module h1,
+.module h2,
+.module h3,
+.module h4 {
+	color: #383d40;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+.module .panel.panel-default {
+	border: none;
+}
+
+.module .panel-heading {
+	padding: 17px 15px;
+}
+
+.module .panel-heading > h3.panel-title {
+	margin-top: 2px;
+	font-size: 16px;
+}
+
+.module .panel-heading > h3.panel-title > i.fa {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	margin-right: 10px;
+	vertical-align: baseline;
+}
+
+.effect-link {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+
+.effect-link .effect-hover {
+	background: rgba(0, 0, 0, 0.75) none repeat scroll 0 0;
+	height: 100%;
+	opacity: 0;
+	position: absolute;
+	transition: all 0.5s ease 0s;
+	width: 100%;
+}
+
+.effect-link .effect-hover .effect-hover-content {
+	color: #fff;
+	font-size: 20px;
+	height: 20px;
+	margin-top: -12px;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	width: 100%;
+}
+
+.effect-link:hover .effect-hover {
+	opacity: 1;
+}
+
+.module-forum .forum-empty {
+	padding: 15px;
+	background-color: #383d40;
+}
+
+.module-forum .forum-empty h4 {
+	color: #fff;
+}
+
+.module-forum .panel-box table.table {
+	margin-bottom: 0;
+}
+
+.module-forum .panel-box table.table tbody.forum-content tr {
+	background-color: #383d40;
+	border: none;
+	color: #898989;
+}
+
+.module-forum .panel-box table.table tbody.forum-content tr td:first-child {
+	width: 60px;
+	background-color: #2C3031;
+}
+
+.module-forum .panel-box table.table tbody.forum-content tr td:first-child > i.fa {
+	font-size: 34px;
+	color: #fff;
+	padding-top: 5px;
+}
+
+.module-forum .panel-box table.table tbody.forum-content span.stats {
+	display: block;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.module-forum .panel-box table.table tbody.forum-content span.stats:first-child {
+	margin-top: 8px;
+}
+
+.module-forum .panel-box table.table tbody.forum-content span.stats i.fa {
+	color: #fff;
+	font-size: 14px;
+}
+
+.module-forum .panel-box table.table {
+	border: none;
+}
+
+.module-forum .panel-box table.table tbody.forum-content tr+tr {
+	border-top: 2px solid #2C3031;
+}
+
+.module-forum .panel-box ul.subforums {
+	margin-top: 7px;
+}
+
+.module-forum .panel-box .subforums li {
+	margin-right: 15px;
+}
+
+.module-forum .panel-box .subforums li a {
+	color: #fff;
+	font-weight: normal;
+	font-size: 12px;
+	text-transform: uppercase;
+	margin-right: 6px;
+}
+
+.module-forum .panel-box .subforums li a:hover {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+.module-forum .panel-box table.table tbody.forum-content h4 > a {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: 'Hind', sans-serif;
+	font-size: 16px;
+}
+
+.module-forum .last-message {
+	margin-top: 7px;
+}
+
+.module-forum .last-message a {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+.module-forum .panel-box table.table tbody.forum-content h4 > a:hover, .module-forum .last-message a:hover {
+	color: #fff;
+}
+
+.module-forum .panel-box .table > tbody > tr > td {
+	border-top: none;
+}
+
+.module-forum .panel-box .table > tbody > tr > td.col-md-6 {
+	padding: 12px 15px 10px 25px;
+}
+
+.module-forum .panel-box .table > tbody span.alert {
+	position: absolute;
+	margin-right: -5px;
+	margin-top: -10px;
+}
+
+.module-forum .img-avatar-forum {
+	border-radius: 100%;
+	margin-bottom: 15px;
+	max-width: 150px;
+}
+
+.module-forum .forum-heading th {
+	padding: 15px;
+}
+
+.module-forum .forum-heading th i.fa {
+	margin-right: 5px;
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+/* Formulaire */
+
+.form-group {
+	margin-bottom: 10px;
+}
+
+.form-horizontal .form-group {
+	margin-right: 0;
+}
+
+.widget input[type=text],
+.widget input[type=password],
+.widget input[type=color],
+.widget input[type=date],
+.widget input[type=datetime],
+.widget input[type=email],
+.widget input[type=tel],
+.widget input[type=url],
+.widget select.form-control {
+	font-size: 14px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #fff;
+	padding: 15px;
+	background-color: rgba(0,0,0,.27);
+	box-shadow: none;
+	opacity: 0.48;
+	border-radius: 0;
+	border-color: transparent;
+	height: 48px;
+}
+
+.widget input[type=text]:focus,
+.widget input[type=password]:focus,
+.widget input[type=color]:focus,
+.widget input[type=date]:focus,
+.widget input[type=datetime]:focus,
+.widget input[type=email]:focus,
+.widget input[type=tel]:focus,
+.widget input[type=url]:focus,
+.widget select.form-control:focus {
+	opacity: 0.58;
+	border-color: transparent;
+}
+
+.module input[type=text],
+.module input[type=password],
+.module input[type=color],
+.module input[type=date],
+.module input[type=datetime],
+.module input[type=email],
+.module input[type=tel],
+.module input[type=url],
+.module select.form-control {
+	font-size: 14px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #8F8F8D;
+	padding: 15px;
+	background-color: #383D40;
+	box-shadow: none;
+	opacity: 0.9;
+	border-radius: 0;
+	border-color: transparent;
+	height: 48px;
+}
+
+.module input[type=text]:focus,
+.module input[type=password]:focus,
+.module input[type=color]:focus,
+.module input[type=date]:focus,
+.module input[type=datetime]:focus,
+.module input[type=email]:focus,
+.module input[type=tel]:focus,
+.module input[type=url]:focus,
+.module select.form-control:focus,
+.module textarea.form-control:focus {
+	opacity: 1;
+	border-color: transparent;
+}
+
+.module textarea.form-control {
+	font-size: 14px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #8F8F8D;
+	padding: 15px;
+	background-color: #383D40;
+	box-shadow: none;
+	opacity: 0.9;
+	border-radius: 0;
+	border-color: transparent;
+}
+
+.form-control {
+	height: 38px;
+}
+
+.form-control:focus {
+	box-shadow: none;
+}
+
+.form-control::-webkit-input-placeholder { color: white; }
+.form-control:-moz-placeholder { color: white; }
+.form-control::-moz-placeholder { color: white; }
+.form-control:-ms-input-placeholder { color: white; }
+
+.input-group-addon {
+	background-color: #383D40;
+	color: #fff;
+	border: none;
+	border-radius: 0;
+}
+
+.form-horizontal .radio-inline {
+	padding-top: 15px;
+	margin-bottom: 7px;
+}
+
+.wysibb-text-editor.wysibb-body {
+	padding: 10px;
+}
+
+/* Post-contenu */
+
+section#post-contenu {
+	background-color: #fff;
+	padding: 30px 0;
+	border-top: 1px solid #efefef;
+}
+
+section#post-contenu + footer {
+	margin-top: 0;
+}
+
+/* Footer */
+
+footer {
+	background: #383d40;
+	border-top: 1px solid #2c3031;
+	margin-top: 25px;
+}
+
+footer .copyleft {
+	color: #ededed;
+	display: inline-block;
+	padding: 15px 0;
+}
+
+footer .copyleft .text-muted {
+	color: #a2a2a2;
+}
+
+footer .copyleft a {
+	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+}
+
+footer .copyleft a:hover, footer .copyleft a:focus {
+	color: #fff;
+}
+
+/* Style des rows */
+
+.row {
+	padding: 0;
+	margin: 0;
+}
+
+.row-default {
+	padding: 0;
+	margin: 0 -15px;
+}
+
+.row-space {
+	margin: 25px -15px 0;
+}
+
+.row.row-dark + .row.row-dark {
+	-moz-box-shadow: 0px -5px 0px 0px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0px -5px 0px 0px rgba(0,0,0,0.1);
+	-o-box-shadow: 0px -5px 0px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px -5px 0px 0px rgba(0,0,0,0.1);
+}
+
+header .row-dark {
+	background-color: #383d40;
+	padding-bottom: 18px;
+}
+
+#contenu .row-dark {
+	background-color: #2f3336;
+	padding-bottom: 18px;
+}
+
+header .row-dark > .col-md-1,
+header .row-dark > .col-md-2,
+header .row-dark > .col-md-3,
+header .row-dark > .col-md-4,
+header .row-dark > .col-md-5,
+header .row-dark > .col-md-6,
+header .row-dark > .col-md-7,
+header .row-dark > .col-md-8,
+header .row-dark > .col-md-9,
+header .row-dark > .col-md-10,
+header .row-dark > .col-md-11,
+header .row-dark > .col-md-12 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* Style des modules */
+
+.module {
+	margin-top: 25px;
+}
+
+.module > .row {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+/* Responsive */
+
+@media (min-width: 768px) {
+	.form-horizontal .control-label {
+		padding-top: 15px;
+	}
+}
+
+@media (max-width: 768px) {
+	header > .header-banner {
+		margin-top: 51px;
+	}
+	header > nav.navbar-default ul.navbar-account {
+		background-color: #fff;
+		top: 43px;
+	}
+	header .navbar-nav .dropdown-menu > li {
+		border-top: 1px solid #e8e8e8;
+	}
+	header .navbar-nav .open .dropdown-menu > li > a {
+		line-height: 45px;
+	}
+	header > nav.navbar-default ul.navbar-account li.active a i.fa {
+		padding-bottom: 9px;
+	}
+	header > nav.navbar-default ul.navbar-account li {
+		display: inline-block;
+	}
+	header > nav.navbar-default ul.navbar-account > li.login > a {
+		padding: 18px 20px 14px 45px;
+	}
+	.widget-navigation ul.navbar-nav {
+		margin: 0;
+	}
+	.module {
+		margin-bottom: 15px;
+	}
+	footer .copyleft {
+		padding-bottom: 2px;
+	}
+	footer .col-md-6.text-right {
+		margin-bottom: 15px;
+		text-align: left;
+	}
+}
+
+/* Live-Editor */
+
+nav.live-editor-navbar {
+	border-bottom: 1px solid #efefef;
+}
+
+.live-editor-navbar .live-editor-screen, .live-editor-navbar .live-editor-mode {
+	padding: 5px;
+}
+
+.btn.live-editor-add-row, .btn.live-editor-add-col, .btn-group button.btn {
+	padding: 6px 11px 10px !important;
+	border-radius: 0 !important;
+}
+
+.live-editor-zone {
+	border: 1px solid rgba(66,139,202,.9);
+}
+
+.live-editor-row {
+	border: 1px solid rgba(120,217,229,.9);
+	background-color: rgba(120,217,229,.2);
+}
+
+.live-editor-row > .live-editor-row-header {
+	margin-top: 0;
+}
+
+.live-editor-zone, .live-editor-row, .live-editor-col {
+	padding: 5px !important;
+}
+
+.live-editor-row + .live-editor-row {
+	border-top: none;
+}
+
+.live-editor-row-header {
+	background-color: rgba(120,217,229,.2) !important;
+}
+
+#live-editor-settings-form label {
+	padding-top: 8px !important;
+}
+
+#live-editor-settings-form .form-control::-webkit-input-placeholder { color: #b8b8b8; }
+#live-editor-settings-form .form-control:-moz-placeholder { color: #b8b8b8 }
+#live-editor-settings-form .form-control::-moz-placeholder { color: #b8b8b8; }
+#live-editor-settings-form .form-control:-ms-input-placeholder { color: #b8b8b8; }
+
+#live-editor-settings a#link-delete {
+	padding: 10px 15px;
+}
+
+#live-editor-settings-form .ui-sortable-handle {
+	border: 1px solid rgba(0,0,0,.10);
+	background-color: rgba(0,0,0,.05);
+}
+
+#live-editor-settings-form .ui-sortable-handle + .ui-sortable-handle {
+	margin-top: 5px;
+}
+
+
+.panel-danger .panel-heading h3.panel-title i.fa
+{
+	color: #383d40;
+}
+
+.panel-info .panel-heading h3.panel-title i.fa
+{
+	color: #383d40;
+}
