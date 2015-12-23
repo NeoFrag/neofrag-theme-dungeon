@@ -31,14 +31,14 @@ Under the following terms:
 
 class t_dungeon extends Theme
 {
-	public $name        = 'Dungeon';
+	public $title       = 'Dungeon';
 	public $description = 'Thème orienté jeux vidéo, facilement personnalisable avec un choix de couleur illimité. Créé par <a href="https://dribbble.com/NxAlessandro" target="_blank">Alessandro STIGLIANI</a> avec une mise en page moderne, il s\'adapte pour tout type d\'univers !';
 	public $thumbnail   = 'themes/dungeon/images/thumbnail.jpg';
 	public $link        = 'https://github.com/NeoFragCMS/neofrag-theme-dungeon';
 	public $author      = '<a href="https://dribbble.com/NxAlessandro" target="_blank">Alessandro STIGLIANI</a>';
 	public $licence     = '<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank">Creative Commons CC BY-NC-SA 4.0</a>';
-	public $version     = '1.0';
-	public $nf_version  = '0.1.2';
+	public $version     = '1.1';
+	public $nf_version  = '0.1.3';
 	public $path        = __FILE__;
 	public $zones       = array('Header', 'Avant-contenu', 'Contenu', 'Post-contenu', 'Footer');
 
@@ -269,6 +269,6 @@ class t_dungeon extends Theme
 }
 
 /*
-Dungeon theme 1.0 for NeoFrag Alpha 0.1.2
+Dungeon theme 1.1 for NeoFrag Alpha 0.1.3
 ./themes/dungeon/dungeon.php
 */

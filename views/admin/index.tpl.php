@@ -1,5 +1,5 @@
 <div class="tab-content">
-	<div role="tabpanel" class="tab-pane fade in active" id="<?php echo $data['theme']->get_name(); ?>-dashboard">
+	<div role="tabpanel" class="tab-pane fade in active" id="<?php echo $data['theme']->name; ?>-dashboard">
 		<div class="row">
 			<div class="col-md-12 col-lg-4">
 				<img class="img-responsive thumbnail no-margin" src="<?php echo image($data['theme']->thumbnail); ?>" alt="" />
@@ -8,7 +8,7 @@
 				<div class="space hidden-lg"></div>
 				<dl class="dl-horizontal no-margin">
 					<dt>Nom du thème</dt>
-					<dd><?php echo $data['theme']->name; ?></dd>
+					<dd><?php echo $data['theme']->get_title(); ?></dd>
 					<dt>Description</dt>
 					<dd><?php echo $data['theme']->description; ?></dd>
 					<dt>Version</dt>
@@ -21,16 +21,16 @@
 			</div>
 		</div>
 	</div>
-	<div role="tabpanel" class="tab-pane fade" id="<?php echo $data['theme']->get_name(); ?>-settings">
+	<div role="tabpanel" class="tab-pane fade" id="<?php echo $data['theme']->name; ?>-settings">
 		<?php echo $data['form_settings']; ?>
 	</div>
-	<div role="tabpanel" class="tab-pane fade" id="<?php echo $data['theme']->get_name(); ?>-header">
+	<div role="tabpanel" class="tab-pane fade" id="<?php echo $data['theme']->name; ?>-header">
 		<?php echo $data['form_header']; ?>
 	</div>
-	<div role="tabpanel" class="tab-pane fade" id="<?php echo $data['theme']->get_name(); ?>-background">
+	<div role="tabpanel" class="tab-pane fade" id="<?php echo $data['theme']->name; ?>-background">
 		<?php echo $data['form_background']; ?>
 	</div>
-	<div role="tabpanel" class="tab-pane fade" id="<?php echo $data['theme']->get_name(); ?>-socials">
+	<div role="tabpanel" class="tab-pane fade" id="<?php echo $data['theme']->name; ?>-socials">
 		<?php echo $data['form_socials']; ?>
 	</div>
 </div>

@@ -386,7 +386,7 @@ class t_dungeon_c_admin extends Controller
 			new Col(
 				new Panel(array(
 					'content' => $this->load->view('admin/menu', array(
-						'theme_name' => $theme->get_name()
+						'theme_name' => $theme->name
 					)),
 					'body'    => FALSE
 				))
@@ -411,6 +411,6 @@ class t_dungeon_c_admin extends Controller
 }
 
 /*
-Dungeon template 1.0 for NeoFrag Alpha 0.1.2
+Dungeon template 1.1 for NeoFrag Alpha 0.1.3
 ./themes/dungeon/dungeon.php
 */

@@ -44,7 +44,7 @@ class m_forum_m_forum extends Model
 		return $categories;
 	}
 	
-	public function get_categories($all = FALSE)
+	public function get_categories()
 	{
 		$categories = array();
 		$forums     = $this->get_forums();
@@ -55,7 +55,7 @@ class m_forum_m_forum extends Model
 							->order_by('order', 'category_id')
 							->get() as $category)
 		{
-			if ($all || $this->access('forum', 'category_read', $category['category_id']))
+			if ($this->access('forum', 'category_read', $category['category_id']))
 			{
 				$category['forums'] = array();
 				
@@ -82,6 +82,61 @@ class m_forum_m_forum extends Model
 		return $categories;
 	}
 	
+	public function get_forums_tree()
+	{
+		$tree = array();
+		
+		foreach ($this->db	->select('category_id', 'title')
+							->from('nf_forum_categories')
+							->order_by('order', 'category_id')
+							->get() as $category)
+		{
+			if ($this->access('forum', 'category_read', $category['category_id']))
+			{
+				$forums = array();
+				
+				foreach ($this->db	->select('f.forum_id', 'f.title')
+									->from('nf_forum f')
+									->join('nf_forum_url u', 'u.forum_id = f.forum_id')
+									->where('f.parent_id', $category['category_id'])
+									->where('f.is_subforum', FALSE)
+									->where('u.forum_id', NULL)
+									->order_by('f.order', 'f.forum_id')
+									->get() as $forum)
+				{
+					$subforums = array();
+					
+					foreach ($this->db	->select('f.forum_id', 'f.title')
+										->from('nf_forum f')
+										->join('nf_forum_url u', 'u.forum_id = f.forum_id')
+										->where('f.parent_id', $forum['forum_id'])
+										->where('f.is_subforum', TRUE)
+										->where('u.forum_id', NULL)
+										->order_by('f.order', 'f.forum_id')
+										->get() as $subforum)
+					{
+						$subforums[$subforum['forum_id']] = $subforum['title'];
+					}
+
+					$forums[$forum['forum_id']] = array(
+						'title'     => $forum['title'],
+						'subforums' => $subforums
+					);
+				}
+				
+				if ($forums)
+				{
+					$tree[$category['category_id']] = array(
+						'title'  => $category['title'],
+						'forums' => $forums
+					);
+				}
+			}
+		}
+		
+		return $tree;
+	}
+	
 	public function get_forums($forum_id = NULL, $mini = FALSE)
 	{
 		if ($forum_id)
@@ -102,7 +157,7 @@ class m_forum_m_forum extends Model
 										!$forum_id ? 'f.count_messages + SUM(IFNULL(f2.count_messages, 0)) as count_messages' : 'f.count_messages',
 										!$forum_id ? 'f.count_topics   + SUM(IFNULL(f2.count_topics, 0))   as count_topics'   : 'f.count_topics',
 										'f.last_message_id',
-										'm.user_id',
+										'u.user_id',
 										'u.username',
 										't.topic_id',
 										't.title as last_title',
@@ -117,7 +172,7 @@ class m_forum_m_forum extends Model
 									->from('nf_forum f')
 									->join('nf_forum_messages m',  'm.message_id = f.last_message_id')
 									->join('nf_forum_topics t',    't.topic_id = m.topic_id')
-									->join('nf_users u',           'u.user_id = m.user_id')
+									->join('nf_users u',           'u.user_id = m.user_id AND u.deleted = "0"')
 									->join('nf_users_profiles up', 'u.user_id = up.user_id')
 									->join('nf_forum_url u2',      'u2.forum_id = f.forum_id')
 									->group_by('f.forum_id')
@@ -158,10 +213,10 @@ class m_forum_m_forum extends Model
 									't.views',
 									't.count_messages',
 									't.last_message_id',
-									'm1.user_id',
+									'u1.user_id',
 									'u1.username',
 									'm1.date',
-									'm2.user_id as last_user_id',
+									'u2.user_id as last_user_id',
 									'u2.username as last_username',
 									'm2.date as last_message_date',
 									'm2.message',
@@ -171,8 +226,8 @@ class m_forum_m_forum extends Model
 						->from('nf_forum_topics   t')
 						->join('nf_forum_messages m1', 't.message_id = m1.message_id')
 						->join('nf_forum_messages m2', 't.last_message_id = m2.message_id')
-						->join('nf_users u1',          'u1.user_id = m1.user_id')
-						->join('nf_users u2',          'u2.user_id = m2.user_id')
+						->join('nf_users u1',          'u1.user_id = m1.user_id AND u1.deleted = "0"')
+						->join('nf_users u2',          'u2.user_id = m2.user_id AND u2.deleted = "0"')
 						->where('t.forum_id', $forum_id)
 						->order_by('IFNULL(m2.date, m1.date) DESC')
 						->get();
@@ -227,9 +282,9 @@ class m_forum_m_forum extends Model
 	
 	public function get_messages($topic_id, $forum_id)
 	{
-		return $this->db->select('m.message_id', 'm.user_id', 'u.username', 'up.avatar', 'up.signature', 'up.sex', 'u.admin', 'MAX(s.last_activity) > DATE_SUB(NOW(), INTERVAL 5 MINUTE) as online', 'm.message', 'UNIX_TIMESTAMP(m.date) as date')
+		return $this->db->select('m.message_id', 'u.user_id', 'u.username', 'up.avatar', 'up.signature', 'up.sex', 'u.admin', 'MAX(s.last_activity) > DATE_SUB(NOW(), INTERVAL 5 MINUTE) as online', 'm.message', 'UNIX_TIMESTAMP(m.date) as date')
 						->from('nf_forum_messages m')
-						->join('nf_users          u',  'm.user_id = u.user_id')
+						->join('nf_users          u',  'm.user_id = u.user_id AND u.deleted = "0"')
 						->join('nf_users_profiles up', 'u.user_id = up.user_id')
 						->join('nf_sessions       s',  'u.user_id = s.user_id')
 						->where('m.topic_id', $topic_id)
@@ -297,11 +352,11 @@ class m_forum_m_forum extends Model
 	
 	public function check_message($message_id, $title)
 	{
-		$message = $this->db	->select('t.topic_id', 't.title as topic_title', 't.message_id = m.message_id as is_topic', 'm.message', 'm.user_id', 'm.user_id', 'u.username', 'up.avatar', 'up.signature', 'up.sex', 'u.admin', 'MAX(s.last_activity) > DATE_SUB(NOW(), INTERVAL 5 MINUTE) as online', 't.forum_id', 'f.title', 'f.parent_id as category_id', 't.status IN ("-2", "-1") as locked')
+		$message = $this->db	->select('t.topic_id', 't.title as topic_title', 't.message_id = m.message_id as is_topic', 'm.message', 'u.user_id', 'u.username', 'up.avatar', 'up.signature', 'up.sex', 'u.admin', 'MAX(s.last_activity) > DATE_SUB(NOW(), INTERVAL 5 MINUTE) as online', 't.forum_id', 'f.title', 'f.parent_id as category_id', 't.status IN ("-2", "-1") as locked')
 								->from('nf_forum_messages m')
 								->join('nf_forum_topics t',    'm.topic_id = t.topic_id')
 								->join('nf_forum        f',    't.forum_id = f.forum_id')
-								->join('nf_users          u',  'm.user_id = u.user_id')
+								->join('nf_users          u',  'm.user_id = u.user_id AND u.deleted = "0"')
 								->join('nf_users_profiles up', 'u.user_id = up.user_id')
 								->join('nf_sessions       s',  'u.user_id = s.user_id')
 								->where('m.message_id', $message_id)
@@ -506,6 +561,27 @@ class m_forum_m_forum extends Model
 		return $parent_id;
 	}
 	
+	public function get_last_message_id($forum_id)
+	{
+		$message_id = $this->db	->select('m.message_id')
+								->from('nf_forum_messages m')
+								->join('nf_forum_topics t', 't.topic_id = m.topic_id')
+								->where('t.forum_id', $forum_id)
+								->order_by('message_id DESC')
+								->limit(1)
+								->row();
+		
+		return $message_id ?: NULL;
+	}
+	
+	public function count_messages($topic_id)
+	{
+		return $this->db	->select('COUNT(*) - 1')
+							->from('nf_forum_messages')
+							->where('topic_id', $topic_id)
+							->row();
+	}
+	
 	public function _has_unread($forum)
 	{
 		if (!$forum['count_topics'] || !$this->user())
@@ -566,6 +642,6 @@ class m_forum_m_forum extends Model
 }
 
 /*
-Dungeon theme 1.0 for NeoFrag Alpha 0.1.2
+Dungeon theme 1.1 for NeoFrag Alpha 0.1.3
 ./themes/dungeon/overrides/modules/forum/models/forum.php
 */
