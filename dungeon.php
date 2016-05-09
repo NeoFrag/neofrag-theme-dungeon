@@ -37,8 +37,8 @@ class t_dungeon extends Theme
 	public $link        = 'https://github.com/NeoFragCMS/neofrag-theme-dungeon';
 	public $author      = '<a href="https://dribbble.com/NxAlessandro" target="_blank">Alessandro STIGLIANI</a>';
 	public $licence     = '<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank">Creative Commons CC BY-NC-SA 4.0</a>';
-	public $version     = '1.1';
-	public $nf_version  = '0.1.3';
+	public $version     = '1.2';
+	public $nf_version  = '0.1.4';
 	public $path        = __FILE__;
 	public $zones       = array('Header', 'Avant-contenu', 'Contenu', 'Post-contenu', 'Footer');
 
@@ -46,6 +46,8 @@ class t_dungeon extends Theme
 	{
 		$this	->css('style')
 				->js('dungeon');
+
+		return parent::load();
 	}
 
 	public function styles_row()
@@ -256,7 +258,7 @@ class t_dungeon extends Theme
 		return parent::install($dispositions);
 	}
 
-	public function uninstall()
+	public function uninstall($remove = TRUE)
 	{
 		$this->load->library('file')->delete($this->config->dungeon_background)
 									->delete($this->config->dungeon_header)
@@ -264,11 +266,11 @@ class t_dungeon extends Theme
 
 		$this->db->where('name LIKE', 'dungeon_%')->delete('nf_settings');
 
-		return parent::uninstall();
+		return parent::uninstall($remove);
 	}
 }
 
 /*
-Dungeon theme 1.1 for NeoFrag Alpha 0.1.3
+Dungeon theme 1.2 for NeoFrag Alpha 0.1.4
 ./themes/dungeon/dungeon.php
 */

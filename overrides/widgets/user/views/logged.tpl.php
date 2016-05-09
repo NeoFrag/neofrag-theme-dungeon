@@ -1,21 +1,26 @@
 <div class="panel-body text-center">
-	<h4 class="no-margin">Bienvenue, <a href="<?php echo url('user.html'); ?>"><?php echo $this->user('username'); ?></a></h4>
+	<h4 class="no-margin"><?php echo i18n('welcome'); ?></h4>
 	<br />
 	<a href="<?php echo url('user.html'); ?>"><img src="<?php echo $NeoFrag->user->avatar(); ?>" style="max-width: 150px;" class="img-circle" alt="" /></a>
 </div>
 <ul class="list-group">
 	<li class="list-group-item">
-		<i class="fa fa-user"></i> <a href="<?php echo url('user.html'); ?>">Mon espace</a>
+		<!--<span class="label label-success pull-right"><?php echo 0; //TODO nombre de nouvelles notifications ?></span>-->
+		<?php echo icon('fa-user'); ?> <a href="<?php echo url('user.html'); ?>"><?php echo i18n('my_account'); ?></a>
 	</li>
 	<li class="list-group-item">
-		<i class="fa fa-cogs"></i> <a href="<?php echo url('user/edit.html'); ?>">Gérer mon compte</a>
+		<?php echo icon('fa-cogs'); ?> <a href="<?php echo url('user/edit.html'); ?>"><?php echo i18n('manage_my_account'); ?></a>
 	</li>
 	<li class="list-group-item">
-		<i class="fa fa-eye"></i> <a href="<?php echo url('members/'.$this->user('user_id').'/'.url_title($this->user('username')).'.html'); ?>">Voir mon profil</a>
+		<?php echo icon('fa-eye'); ?> <a href="<?php echo url('members/'.$NeoFrag->user('user_id').'/'.url_title($data['username']).'.html'); ?>"><?php echo i18n('view_my_profile'); ?></a>
 	</li>
-	<?php if ($NeoFrag->user('admin')): ?>
 	<li class="list-group-item">
-		<i class="fa fa-dashboard"></i> <a href="<?php echo url('admin.html'); ?>">Administration</a>
+		<?php if ($messages = $NeoFrag->user->get_messages()): ?><span class="label label-danger pull-right"><?php echo $messages; ?></span><?php endif; ?>
+		<?php echo icon('fa-envelope-o'); ?> <a href="<?php echo url('user/messages.html'); ?>">Messagerie</a>
+	</li>
+	<?php if ($NeoFrag->user('admin')): //TODO permission ?>
+	<li class="list-group-item">
+		<?php echo icon('fa-dashboard'); ?> <a href="<?php echo url('admin.html'); ?>"><?php echo i18n('administration'); ?></a>
 	</li>
 	<?php endif; ?>
 </ul>
