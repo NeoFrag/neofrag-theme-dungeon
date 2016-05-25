@@ -45,7 +45,7 @@
 							<?php if ($forum['last_title']): ?>
 							<div class="media last-message">
 								<div class="media-left">
-									<img class="media-object img-circle" style="max-height: 40px; max-width: 40px;" src="<?php echo $NeoFrag->user->avatar($forum['avatar'], $forum['sex']); ?>" alt="" />
+									<?php echo $NeoFrag->user->avatar($forum['avatar'], $forum['sex'], $forum['user_id'], $forum['username']); ?>
 								</div>
 								<div class="media-body">
 									<h5 class="media-heading"><a href="<?php echo url('forum/topic/'.$forum['topic_id'].'/'.url_title($forum['last_title']).($forum['last_count_messages'] > $NeoFrag->config->forum_messages_per_page ? '/page/'.ceil($forum['last_count_messages'] / $NeoFrag->config->forum_messages_per_page) : '').'.html#message_'.$forum['last_message_id']); ?>"><i class="fa fa-comment-o"></i> <?php echo str_shortener($forum['last_title'], 40); ?></a></h5>

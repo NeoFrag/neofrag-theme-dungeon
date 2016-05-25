@@ -24,6 +24,8 @@ class o_w_user_c_index extends w_user_c_index
 	{
 		if ($this->user())
 		{
+			$this->css('user');
+
 			return new Panel(array(
 				'title'   => 'Espace membre',
 				'icon'    => 'fa-lock',
@@ -47,6 +49,6 @@ class o_w_user_c_index extends w_user_c_index
 }
 
 /*
-Dungeon theme 1.0 for NeoFrag Alpha 0.1.2
+Dungeon theme 1.2.1 for NeoFrag Alpha 0.1.4.1
 ./themes/dungeon/overrides/widgets/user/controllers/index.php
 */

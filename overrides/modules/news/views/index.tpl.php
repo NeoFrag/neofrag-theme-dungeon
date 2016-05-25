@@ -15,7 +15,7 @@
 							<i class="fa fa-share-alt"></i>
 						</div>
 						<div class="share alt">
-							<a href="http://www.facebook.com/sharer.php?u=<?php echo $_SERVER['HTTP_HOST'].$this->config->base_url; ?>news/<?php echo $news['news_id']; ?>/<?php echo url_title($news['title']); ?>.html" target="_blank"><i class="fa fa-facebook"></i></a>
+							<a href="https://www.facebook.com/sharer.php?u=<?php echo $_SERVER['HTTP_HOST'].$this->config->base_url; ?>news/<?php echo $news['news_id']; ?>/<?php echo url_title($news['title']); ?>.html" target="_blank"><i class="fa fa-facebook"></i></a>
 							<a href="https://twitter.com/share?url=<?php echo $_SERVER['HTTP_HOST'].$this->config->base_url; ?>news/<?php echo $news['news_id']; ?>/<?php echo url_title($news['title']); ?>.html" target="_blank"><i class="fa fa-twitter"></i></a>
 							<a href="https://plus.google.com/share?url=<?php echo $_SERVER['HTTP_HOST'].$this->config->base_url; ?>news/<?php echo $news['news_id']; ?>/<?php echo url_title($news['title']); ?>.html" target="_blank"><i class="fa fa-google-plus"></i></a>
 						</div>

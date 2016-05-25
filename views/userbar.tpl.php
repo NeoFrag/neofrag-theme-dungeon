@@ -17,7 +17,7 @@
 			<ul class="nav navbar-nav navbar-right navbar-account">
 				<li class="login dropdown">
 					<a href="#" class="dropdown-toggle" style="padding-left: 64px !important;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<img src="<?php echo $NeoFrag->user->avatar(); ?>" class="img-circle" alt="" /> Mon compte <span class="caret"></span>
+						<?php echo $NeoFrag->user->avatar($NeoFrag->user('avatar'), $NeoFrag->user('sex')); ?> Mon compte <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo url('user.html'); ?>"><i class="fa fa-user fa-fw"></i> Mon espace</a></li>

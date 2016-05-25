@@ -38,10 +38,6 @@ a:hover, a:focus {
 	text-overflow: ellipsis;
 }
 
-img.media-object, .img-avatar-members {
-	border-radius: 100%;
-}
-
 /* Label */
 
 .label {
@@ -197,7 +193,7 @@ header > nav.navbar-default ul.navbar-account > li.login > a:hover {
 	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
-header > nav.navbar-default ul.navbar-account > li.login > a > img {
+header > nav.navbar-default ul.navbar-account > li.login > a > .avatar {
 	max-height: 35px;
 	max-width: 35px;
 	position: absolute;
@@ -411,6 +407,10 @@ header > .header-banner .row-dark {
 
 .widget-slider .carousel-indicators {
 	bottom: 7px;
+}
+
+.widget-user .avatar {
+	margin-bottom: 20px;
 }
 	
 	/* panel-default */
@@ -774,10 +774,6 @@ ol.breadcrumb > li + li::before {
 	font-weight: normal;
 }
 
-.module-members img.img-avatar-members-profil {
-	border-radius: 100%;
-}
-
 /* panel-dark pour les modules */
 	
 .module .panel.panel-dark {
@@ -1127,12 +1123,6 @@ ol.breadcrumb > li + li::before {
 	position: absolute;
 	margin-right: -5px;
 	margin-top: -10px;
-}
-
-.module-forum .img-avatar-forum {
-	border-radius: 100%;
-	margin-bottom: 15px;
-	max-width: 150px;
 }
 
 .module-forum .forum-heading th {
