@@ -103,7 +103,7 @@ class o_m_news_c_index extends m_news_c_index
 					, 'col-md-6'
 				)
 			),
-			$this->load->library('comments')->display('news', $news_id)
+			$this->load->comments->display('news', $news_id)
 		);
 	}
 }
