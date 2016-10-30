@@ -103,12 +103,12 @@ class o_m_news_c_index extends m_news_c_index
 					, 'col-md-6'
 				)
 			),
-			$this->load->library('comments')->display('news', $news_id)
+			$this->comments->display('news', $news_id)
 		);
 	}
 }
 
 /*
-Dungeon theme 1.0 for NeoFrag Alpha 0.1.2
+Dungeon theme 1.3 for NeoFrag Alpha 0.1.5
 ./themes/dungeon/overrides/modules/news/controllers/index.php
 */

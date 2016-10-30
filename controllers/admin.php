@@ -36,83 +36,83 @@ class t_dungeon_c_admin extends Controller
 		$this	->css('admin')
 				->js('admin');
 		
-		$form_header = $this->load	->library('form')
-									->add_rules(array(
-										'header' => array(
-											'label'  => 'Image de fond',
-											'value'  => $this->config->{'dungeon_header'},
-											'type'   => 'file',
-											'upload' => 'themes/dungeon/headers',
-											'info'   => ' d\'image (max. '.(file_upload_max_size() / 1024 / 1024).' Mo)',
-											'check'  => function($filename, $ext){
-												if (!in_array($ext, array('gif', 'jpeg', 'jpg', 'png')))
-												{
-													return 'Veuiller choisir un fichier d\'image';
-												}
-											},
-											'description' => 'Laisser vide pour utiliser l\'image par défaut du thème.'
+		$form_header = $this	->form
+								->add_rules(array(
+									'header' => array(
+										'label'  => 'Image de fond',
+										'value'  => $this->config->{'dungeon_header'},
+										'type'   => 'file',
+										'upload' => 'themes/dungeon/headers',
+										'info'   => ' d\'image (max. '.(file_upload_max_size() / 1024 / 1024).' Mo)',
+										'check'  => function($filename, $ext){
+											if (!in_array($ext, array('gif', 'jpeg', 'jpg', 'png')))
+											{
+												return 'Veuiller choisir un fichier d\'image';
+											}
+										},
+										'description' => 'Laisser vide pour utiliser l\'image par défaut du thème.'
+									),
+									'repeat' => array(
+										'label'  => 'Répéter l\'image',
+										'value'  => $this->config->dungeon_header_repeat,
+										'values' => array(
+											'no-repeat' => 'Non',
+											'repeat-x'  => 'Horizontalement',
+											'repeat-y'  => 'Verticalement',
+											'repeat'    => 'Les deux'
 										),
-										'repeat' => array(
-											'label'  => 'Répéter l\'image',
-											'value'  => $this->config->dungeon_header_repeat,
-											'values' => array(
-												'no-repeat' => 'Non',
-												'repeat-x'  => 'Horizontalement',
-												'repeat-y'  => 'Verticalement',
-												'repeat'    => 'Les deux'
-											),
-											'type'   => 'radio',
-											'rules'  => 'required'
+										'type'   => 'radio',
+										'rules'  => 'required'
+									),
+									'positionX' => array(
+										'label'  => 'Position',
+										'value'  => explode(' ', $this->config->dungeon_header_position)[0],
+										'values' => array(
+											'left'   => 'Gauche',
+											'center' => 'Centré',
+											'right'  => 'Droite'
 										),
-										'positionX' => array(
-											'label'  => 'Position',
-											'value'  => explode(' ', $this->config->dungeon_header_position)[0],
-											'values' => array(
-												'left'   => 'Gauche',
-												'center' => 'Centré',
-												'right'  => 'Droite'
-											),
-											'type'   => 'radio',
-											'rules'  => 'required'
+										'type'   => 'radio',
+										'rules'  => 'required'
+									),
+									'positionY' => array(
+										'value'  => explode(' ', $this->config->dungeon_header_position)[1],
+										'values' => array(
+											'top'    => 'Haut',
+											'center' => 'Milieu',
+											'bottom' => 'Bas'
 										),
-										'positionY' => array(
-											'value'  => explode(' ', $this->config->dungeon_header_position)[1],
-											'values' => array(
-												'top'    => 'Haut',
-												'center' => 'Milieu',
-												'bottom' => 'Bas'
-											),
-											'type'   => 'radio',
-											'rules'  => 'required'
-										),
-										'fixed' => array(
-											'checked' => array('on' => $this->config->dungeon_header_attachment == 'fixed'),
-											'values'  => array('on' => 'Image fixe'),
-											'type'    => 'checkbox'
-										),
-										'color' => array(
-											'label' => 'Couleur de fond',
-											'value' => $this->config->dungeon_header_color,
-											'type'  => 'colorpicker',
-											'rules' => 'required'
-										),
-										'logo' => array(
-											'label'  => 'Logo du site',
-											'value'  => $this->config->dungeon_logo,
-											'type'   => 'file',
-											'upload' => 'themes/dungeon/logos',
-											'info'   => ' d\'image (max. '.(file_upload_max_size() / 1024 / 1024).' Mo)',
-											'check'  => function($filename, $ext){
-												if (!in_array($ext, array('gif', 'jpeg', 'jpg', 'png')))
-												{
-													return 'Veuiller choisir un fichier d\'image';
-												}
-											},
-											'description' => 'Le logo sera affiché dans le widget type "header", en remplacement du titre et slogan.'
-										)
-									))
-									->add_submit('Enregistrer')
-									->save();
+										'type'   => 'radio',
+										'rules'  => 'required'
+									),
+									'fixed' => array(
+										'checked' => array('on' => $this->config->dungeon_header_attachment == 'fixed'),
+										'values'  => array('on' => 'Image fixe'),
+										'type'    => 'checkbox'
+									),
+									'color' => array(
+										'label' => 'Couleur de fond',
+										'value' => $this->config->dungeon_header_color,
+										'type'  => 'colorpicker',
+										'rules' => 'required'
+									),
+									'logo' => array(
+										'label'  => 'Logo du site',
+										'value'  => $this->config->dungeon_logo,
+										'type'   => 'file',
+										'upload' => 'themes/dungeon/logos',
+										'info'   => ' d\'image (max. '.(file_upload_max_size() / 1024 / 1024).' Mo)',
+										'check'  => function($filename, $ext){
+											if (!in_array($ext, array('gif', 'jpeg', 'jpg', 'png')))
+											{
+												return 'Veuiller choisir un fichier d\'image';
+											}
+										},
+										'description' => 'Le logo sera affiché dans le widget type "header", en remplacement du titre et slogan.'
+									)
+								))
+								->add_submit('Enregistrer')
+								->save();
 		
 		$form_background = $this->form
 								->add_rules(array(
@@ -332,7 +332,8 @@ class t_dungeon_c_admin extends Controller
 					->config('dungeon_header_attachment', in_array('on', $post['fixed']) ? 'fixed' : 'scroll')
 					->config('dungeon_header_position', $post['positionX'].' '.$post['positionY'])
 					->config('dungeon_header_color', $post['color'])
-					->config('dungeon_logo', $post['logo'], 'int');
+					->config('dungeon_logo', $post['logo'], 'int')
+					->config('nf_version_css', time());
 
 			refresh();
 		}
@@ -350,7 +351,8 @@ class t_dungeon_c_admin extends Controller
 			$this	->config('dungeon_background_repeat', $post['repeat'])
 					->config('dungeon_background_attachment', in_array('on', $post['fixed']) ? 'fixed' : 'scroll')
 					->config('dungeon_background_position', $post['positionX'].' '.$post['positionY'])
-					->config('dungeon_background_color', $post['color']);
+					->config('dungeon_background_color', $post['color'])
+					->config('nf_version_css', time());
 
 			refresh();
 		}
@@ -360,7 +362,8 @@ class t_dungeon_c_admin extends Controller
 					->config('dungeon_font_color', $post['font_color'])
 					->config('dungeon_font_size', $post['font_size'])
 					->config('dungeon_display', $post['display'])
-					->config('dungeon_navbar_display', in_array('on', $post['navbar']), 'bool');
+					->config('dungeon_navbar_display', in_array('on', $post['navbar']), 'bool')
+					->config('nf_version_css', time());
 
 			refresh();
 		}
@@ -411,6 +414,6 @@ class t_dungeon_c_admin extends Controller
 }
 
 /*
-Dungeon template 1.1 for NeoFrag Alpha 0.1.3
+Dungeon template 1.3 for NeoFrag Alpha 0.1.5
 ./themes/dungeon/dungeon.php
 */

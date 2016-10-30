@@ -6,7 +6,7 @@
 		</div>
 		<div class="box-infos">
 			<div class="autor">
-				<div class="pull-left comments"><i class="fa fa-comments-o"></i><br /><?php echo $NeoFrag->library('comments')->count_comments('news', $data['news_id']); ?></div>
+				<div class="pull-left comments"><i class="fa fa-comments-o"></i><br /><?php echo $NeoFrag->comments->count_comments('news', $data['news_id']); ?></div>
 				<div class="pull-right">
 					<div class="share-content">
 						<div class="share">

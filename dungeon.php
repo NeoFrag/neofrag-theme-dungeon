@@ -37,8 +37,8 @@ class t_dungeon extends Theme
 	public $link        = 'https://github.com/NeoFragCMS/neofrag-theme-dungeon';
 	public $author      = '<a href="https://dribbble.com/NxAlessandro" target="_blank">Alessandro STIGLIANI</a>';
 	public $licence     = '<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank">Creative Commons CC BY-NC-SA 4.0</a>';
-	public $version     = '1.2.1';
-	public $nf_version  = '0.1.4.1';
+	public $version     = '1.3';
+	public $nf_version  = '0.1.5';
 	public $path        = __FILE__;
 	public $zones       = array('Header', 'Avant-contenu', 'Contenu', 'Post-contenu', 'Footer');
 
@@ -260,9 +260,9 @@ class t_dungeon extends Theme
 
 	public function uninstall($remove = TRUE)
 	{
-		$this->load->library('file')->delete($this->config->dungeon_background)
-									->delete($this->config->dungeon_header)
-									->delete($this->config->dungeon_logo);
+		$this->file->delete($this->config->dungeon_background)
+					->delete($this->config->dungeon_header)
+					->delete($this->config->dungeon_logo);
 
 		$this->db->where('name LIKE', 'dungeon_%')->delete('nf_settings');
 
@@ -271,6 +271,6 @@ class t_dungeon extends Theme
 }
 
 /*
-Dungeon theme 1.2.1 for NeoFrag Alpha 0.1.4.1
+Dungeon theme 1.3 for NeoFrag Alpha 0.1.5
 ./themes/dungeon/dungeon.php
 */

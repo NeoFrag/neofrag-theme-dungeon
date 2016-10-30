@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Hind:400,300,700);
+@import url(//fonts.googleapis.com/css?family=Hind:400,300,700);
 
 body {
 	background-image: url('<?php echo $NeoFrag->config->dungeon_background ? path($NeoFrag->config->dungeon_background) : '../images/backgrounds/default.jpg'; ?>');

@@ -7,7 +7,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<?php if ($this->user() && $this->user('admin')): ?>
+			<?php if ($this->access->admin()): ?>
 			<a href="<?php echo url('admin.html'); ?>" class="navbar-brand"><?php echo icon('fa-dashboard'); ?></a>
 			<?php endif; ?>
 		</div>
