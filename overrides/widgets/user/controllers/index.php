@@ -41,7 +41,7 @@ class o_w_user_c_index extends w_user_c_index
 				'title'   => 'Espace membre',
 				'icon'    => 'fa-unlock-alt',
 				'content' => $this->load->view('index', array(
-					'form_id' => '6e0fbe194d97aa8c83e9f9e6b5d07c66'
+					'form_id' => $this->form->token('6e0fbe194d97aa8c83e9f9e6b5d07c66')
 				))
 			));
 		}
@@ -49,6 +49,6 @@ class o_w_user_c_index extends w_user_c_index
 }
 
 /*
-Dungeon theme 1.2.1 for NeoFrag Alpha 0.1.4.1
+Dungeon theme 1.3.1 for NeoFrag Alpha 0.1.5.2
 ./themes/dungeon/overrides/widgets/user/controllers/index.php
 */
