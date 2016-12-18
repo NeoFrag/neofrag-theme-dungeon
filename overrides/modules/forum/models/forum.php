@@ -64,13 +64,20 @@ class o_m_forum_m_forum extends m_forum_m_forum
 		
 		foreach ($forums as &$forum)
 		{
+			$forum['has_unread'] = $forum['url'] ? FALSE : $this->_has_unread($forum);
+
 			if ($forum['subforums'])
 			{
 				foreach ($forum['subforums'] = $this->get_forums($forum['forum_id'], TRUE) as $subforum)
 				{
+					if (!$forum['has_unread'] && $subforum['has_unread'])
+					{
+						$forum['has_unread'] = TRUE;
+					}
+
 					if ($subforum['last_message_id'] > $forum['last_message_id'])
 					{
-						foreach (array('last_message_id', 'user_id', 'username', 'topic_id', 'last_title', 'last_message_date', 'last_count_messages', 'avatar', 'sex') as $var)
+						foreach (['last_message_id', 'user_id', 'username', 'topic_id', 'last_title', 'last_message_date', 'last_count_messages'] as $var)
 						{
 							$forum[$var] = $subforum[$var];
 						}
@@ -79,10 +86,9 @@ class o_m_forum_m_forum extends m_forum_m_forum
 			}
 			else
 			{
-				$forum['subforums'] = array();
+				$forum['subforums'] = [];
 			}
 			
-			$forum['has_unread'] = $forum['url'] ? FALSE : $this->_has_unread($forum);
 			$forum['icon']       = icon(($forum['url'] ? 'fa-globe' : 'fa-comments'.($forum['has_unread'] ? '' : '-o')).($mini ? '' : ' fa-3x'));
 		}
 		
@@ -91,6 +97,6 @@ class o_m_forum_m_forum extends m_forum_m_forum
 }
 
 /*
-Dungeon theme 1.2 for NeoFrag Alpha 0.1.4
+Dungeon theme 1.3.2 for NeoFrag Alpha 0.1.5.3
 ./themes/dungeon/overrides/modules/forum/models/forum.php
 */
