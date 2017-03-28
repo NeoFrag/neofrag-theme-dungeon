@@ -20,35 +20,31 @@ along with NeoFrag. If not, see <http://www.gnu.org/licenses/>.
 
 class o_w_user_c_index extends w_user_c_index
 {
-	public function index($config = array())
+	public function index($config = [])
 	{
 		if ($this->user())
 		{
 			$this->css('user');
 
-			return new Panel(array(
-				'title'   => 'Espace membre',
-				'icon'    => 'fa-lock',
-				'content' => $this->load->view('logged', array(
-					'username' => $this->user('username')
-				)),
-				'footer'  => '<a href="'.url('user/logout.html').'"><i class="fa fa-close"></i> Se déconnecter</a>'
-			));
+			return $this->panel()
+						->heading($this->lang('member_area'), 'fa-lock')
+						->body($this->view('logged', [
+							'username' => $this->user('username')
+						]), FALSE)
+						->footer('<a href="'.url('user/logout').'">'.icon('fa-close').' '.$this->lang('logout').'</a>');
 		}
 		else
 		{
-			return new Panel(array(
-				'title'   => 'Espace membre',
-				'icon'    => 'fa-unlock-alt',
-				'content' => $this->load->view('index', array(
-					'form_id' => $this->form->token('6e0fbe194d97aa8c83e9f9e6b5d07c66')
-				))
-			));
+			return $this->panel()
+						->heading($this->lang('member_area'), 'fa-unlock-alt')
+						->body($this->view('index', [
+							'form_id' => $this->form->token('6e0fbe194d97aa8c83e9f9e6b5d07c66')
+						]));
 		}
 	}
 }
 
 /*
-Dungeon theme 1.3.1 for NeoFrag Alpha 0.1.5.2
+Dungeon theme 1.4 for NeoFrag Alpha 0.1.6
 ./themes/dungeon/overrides/widgets/user/controllers/index.php
 */

@@ -11,7 +11,7 @@ the Free Software Foundation, either version 3 of the License, or
 
 NeoFrag is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License
@@ -22,33 +22,26 @@ class o_m_forum_c_index extends m_forum_c_index
 {
 	public function index()
 	{
-		$panels = array();
+		$panels = [];
 		
 		foreach ($this->model()->get_categories() as $category)
 		{
-			$panels[] = new Panel(array(
-				'content' => $this->load->view('front', $category),
-				'body'    => FALSE
-			));
+			$panels[] = $this->panel()->body($this->view('front', $category), FALSE);
 		}
 		
 		if (empty($panels))
 		{
-			$panels[] = new Panel(array(
-				'title'   => 'Forum',
-				'icon'    => 'fa-comments',
-				'style'   => 'panel-info',
-				'content' => '<div class="text-center">Il n\'y a pas de forum pour le moment</div>'
-			));
+			$panels[] = $this	->panel()
+								->heading($this->lang('forum'), 'fa-comments')
+								->body('<div class="text-center">'.$this->lang('no_forum').'</div>')
+								->color('info');
 		}
 		
 		if ($this->user())
 		{
-			$actions = new Panel(array(
-				'content' => '<a class="btn btn-default" href="'.url('forum/mark-all-as-read.html').'" data-toggle="tooltip" title="Marquer tous les messages comme étant lus">'.icon('fa-eye').'</a>',
-				'body'    => FALSE,
-				'style'   => 'panel-back text-right'
-			));
+			$actions = $this->panel()
+							->body('<a class="btn btn-default" href="'.url('forum/mark-all-as-read').'" data-toggle="tooltip" title="'.$this->lang('mark_all_as_read').'">'.icon('fa-eye').'</a>', FALSE)
+							->color('back text-right');
 
 			array_unshift($panels, $panels[] = $actions);
 		}
@@ -58,6 +51,6 @@ class o_m_forum_c_index extends m_forum_c_index
 }
 
 /*
-Dungeon theme 1.0 for NeoFrag Alpha 0.1.2
+Dungeon theme 1.4 for NeoFrag Alpha 0.1.6
 ./themes/dungeon/overrides/modules/forum/controllers/index.php
 */

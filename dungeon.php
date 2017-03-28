@@ -37,10 +37,10 @@ class t_dungeon extends Theme
 	public $link        = 'https://github.com/NeoFragCMS/neofrag-theme-dungeon';
 	public $author      = '<a href="https://dribbble.com/NxAlessandro" target="_blank">Alessandro STIGLIANI</a>';
 	public $licence     = '<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank">Creative Commons CC BY-NC-SA 4.0</a>';
-	public $version     = '1.3.2';
-	public $nf_version  = '0.1.5.3';
+	public $version     = '1.4';
+	public $nf_version  = '0.1.6';
 	public $path        = __FILE__;
-	public $zones       = array('Header', 'Avant-contenu', 'Contenu', 'Post-contenu', 'Footer');
+	public $zones       = ['Header', 'Avant-contenu', 'Contenu', 'Post-contenu', 'Footer'];
 
 	public function load()
 	{
@@ -52,15 +52,15 @@ class t_dungeon extends Theme
 
 	public function styles_row()
 	{
-		return $this->load->view('live_editor/row');
+		return $this->view('live_editor/row');
 	}
 
 	public function styles_widget()
 	{
-		return $this->load->view('live_editor/widget');
+		return $this->view('live_editor/widget');
 	}
 
-	public function install($dispositions = array())
+	public function install($dispositions = [])
 	{
 		$this	->config('dungeon_background_repeat', 'repeat')
 				->config('dungeon_background_attachment', 'scroll')
@@ -78,182 +78,181 @@ class t_dungeon extends Theme
 				->config('dungeon_social_twitter', '#')
 				->config('dungeon_social_google', '#')
 				->config('dungeon_social_steam', '#')
-				->config('dungeon_social_twitch', '#');
+				->config('dungeon_social_twitch', '#')
+				->config('dungeon_social_behance', '#')
+				->config('dungeon_social_deviantart', '#')
+				->config('dungeon_social_dribble', '#')
+				->config('dungeon_social_flickr', '#')
+				->config('dungeon_social_github', '#')
+				->config('dungeon_social_instagram', '#')
+				->config('dungeon_social_youtube', '#')
+				->config('dungeon_background', 0, 'int')
+				->config('dungeon_header', 0, 'int')
+				->config('dungeon_logo', 0, 'int');
 
-		$dispositions['*']['Header'] = array(
-			new Row(
-				new Col(
-					new Widget_View(array(
-						'widget_id' => $this->db->insert('nf_widgets', array(
+		$dispositions['*']['Header'] = [
+			$this->row(
+					$this->col(
+						$this->panel_widget($this->db->insert('nf_widgets', [
 							'widget'   => 'header',
 							'type'     => 'index',
-							'settings' => serialize(array(
+							'settings' => serialize([
 								'align'             => 'text-left',
 								'title'             => '',
 								'description'       => '',
 								'color-title'       => '',
 								'color-description' => ''
-							))
-						))
-					))
-				, 'col-md-12')
-			, 'row-default'),
-			new Row(
-				new Col(
-					new Widget_View(array(
-						'widget_id' => $this->db->insert('nf_widgets', array(
+							])
+						]))
+					)
+				)
+				->style('row-default'),
+			$this->row(
+					$this->col(
+						$this->panel_widget($this->db->insert('nf_widgets', [
 							'widget'   => 'navigation',
 							'type'     => 'index',
-							'settings' => serialize(array(
+							'settings' => serialize([
 								'display' => TRUE,
-								'links'   => array(
-									array(
+								'links'   => [
+									[
 										'title' => 'Accueil',
-										'url'   => 'index.html'
-									),
-									array(
+										'url'   => ''
+									],
+									[
 										'title' => 'Actualit&eacute;s',
-										'url'   => 'news.html'
-									),
-									array(
+										'url'   => 'news'
+									],
+									[
 										'title' => 'Forum',
-										'url'   => 'forum.html'
-									),
-									array(
+										'url'   => 'forum'
+									],
+									[
 										'title' => '&Eacute;quipes',
-										'url'   => 'teams.html'
-									),
-									array(
+										'url'   => 'teams'
+									],
+									[
 										'title' => 'Galerie',
-										'url'   => 'gallery.html'
-									),
-									array(
+										'url'   => 'gallery'
+									],
+									[
 										'title' => 'Membres',
-										'url'   => 'members.html'
-									),
-									array(
+										'url'   => 'members'
+									],
+									[
 										'title' => 'Contact',
-										'url'   => 'contact.html'
-									)
-								)
-							))
-						))
-					))
-				, 'col-md-12')
-			, 'row-dark')
-		);
+										'url'   => 'contact'
+									]
+								]
+							])
+						]))
+					)
+				)
+				->style('row-dark')
+		];
 
-		$dispositions['/']['Avant-contenu'] = array(
-			new Row(
-				new Col(
-					new Widget_View(array(
-						'widget_id' => $this->db->insert('nf_widgets', array(
+		$dispositions['/']['Avant-contenu'] = [
+			$this->row(
+					$this->col(
+						$this->panel_widget($this->db->insert('nf_widgets', [
 							'widget'   => 'slider',
 							'type'     => 'index'
-						))
-					))
-				, 'col-md-12')
-			, 'row-default')
-		);
+						]))
+					)
+				)
+				->style('row-default')
+		];
 
-		$dispositions['*']['Avant-contenu'] = array();
+		$dispositions['*']['Avant-contenu'] = [];
 
-		$dispositions['*']['Contenu'] = array(
-			new Row(
-				new Col(new Widget_View(array(
-					'widget_id' => $this->db->insert('nf_widgets', array(
-						'widget' => 'module',
-						'type'   => 'index'
-					))
-				)), 'col-md-8'),
-				new Col(
-						new Widget_View(array(
-							'widget_id' => $this->db->insert('nf_widgets', array(
+		$dispositions['*']['Contenu'] = [
+			$this->row(
+				$this->col(
+						$this->panel_widget($this->db->insert('nf_widgets', [
+							'widget' => 'module',
+							'type'   => 'index'
+						]))
+					)
+					->size('col-md-8'),
+				$this->col(
+						$this->panel_widget($this->db->insert('nf_widgets', [
 								'widget' => 'user',
 								'type'   => 'index'
-							)),
-							'style' => 'panel-color'
-						)),
-						new Widget_View(array(
-							'widget_id' => $this->db->insert('nf_widgets', array(
+							]))
+							->color('color'),
+						$this->panel_widget($this->db->insert('nf_widgets', [
 								'widget' => 'members',
 								'type'   => 'online'
-							)),
-							'style' => 'panel-default'
-						)),
-						new Widget_View(array(
-							'widget_id' => $this->db->insert('nf_widgets', array(
+							]))
+							->color('default'),
+						$this->panel_widget($this->db->insert('nf_widgets', [
 								'widget' => 'news',
 								'type'   => 'categories'
-							)),
-							'style' => 'panel-default'
-						)),
-						new Widget_View(array(
-							'widget_id' => $this->db->insert('nf_widgets', array(
+							]))
+							->color('default'),
+						$this->panel_widget($this->db->insert('nf_widgets', [
 								'widget'   => 'talks',
 								'type'     => 'index',
-								'settings' => serialize(array(
+								'settings' => serialize([
 									'talk_id' => 2
-								))
-							)),
-							'style' => 'panel-header'
-						))
-				, 'col-md-4')
-			, 'row-default')
-		);
+								])
+							]))
+							->color('header')
+				)
+				->size('col-md-4')
+			)
+			->style('row-default')
+		];
 
-		foreach (array('forum/*', 'news/_news/*', 'user/*') as $page)
+		foreach (['forum/*', 'news/_news/*', 'user/*'] as $page)
 		{
-			$dispositions[$page]['Contenu'] = array(
-				new Row(
-					new Col(
-						new Widget_View(array(
-							'widget_id' => $this->db->insert('nf_widgets', array(
+			$dispositions[$page]['Contenu'] = [
+				$this->row(
+						$this->col(
+							$this->panel_widget($this->db->insert('nf_widgets', [
 								'widget' => 'breadcrumb',
 								'type'   => 'index'
-							))
-						)), 'col-md-12'
-					), 'row-default'
-				),
-				new Row(
-					new Col(
-						new Widget_View(array(
-							'widget_id' => $this->db->insert('nf_widgets', array(
+							]))
+						)
+					)
+					->style('row-default'),
+				$this->row(
+						$this->col(
+							$this->panel_widget($this->db->insert('nf_widgets', [
 								'widget' => 'module',
 								'type'   => 'index'
-							))
-						)), 'col-md-12'
-					), 'row-default'
-				)
-			);
+							]))
+						)
+					)
+					->style('row-default')
+			];
 		}
 
-		$dispositions['forum/*']['Post-contenu'] = array(
-			new Row(
-				new Col(
-					new Widget_View(array(
-						'widget_id' => $this->db->insert('nf_widgets', array(
-							'widget' => 'forum',
-							'type'   => 'statistics'
-						)),
-						'style' => 'panel-default'
-					)), 'col-md-4'
-				),
-				new Col(
-					new Widget_View(array(
-						'widget_id' => $this->db->insert('nf_widgets', array(
-							'widget' => 'forum',
-							'type'   => 'activity'
-						)),
-						'style' => 'panel-header'
-					)), 'col-md-8'
+		$dispositions['forum/*']['Post-contenu'] = [
+			$this->row(
+				$this->col(
+					$this->panel_widget($this->db->insert('nf_widgets', [
+						'widget' => 'forum',
+						'type'   => 'statistics'
+					]))
+					->color('header')
 				)
-			, 'row-default')
-		);
+				->size('col-md-4'),
+				$this->col(
+					$this->panel_widget($this->db->insert('nf_widgets', [
+						'widget' => 'forum',
+						'type'   => 'activity'
+					]))
+					->color('header')
+				)
+				->size('col-md-8')
+			)
+			->style('row-default')
+		];
 
-		$dispositions['*']['Post-contenu'] = array();
+		$dispositions['*']['Post-contenu'] = [];
 
-		$dispositions['*']['Footer'] = array();
+		$dispositions['*']['Footer'] = [];
 
 		return parent::install($dispositions);
 	}
@@ -271,6 +270,6 @@ class t_dungeon extends Theme
 }
 
 /*
-Dungeon theme 1.3.2 for NeoFrag Alpha 0.1.5.3
+Dungeon theme 1.4 for NeoFrag Alpha 0.1.6
 ./themes/dungeon/dungeon.php
 */

@@ -3,7 +3,7 @@
 [Dungeon](https://github.com/NeoFragCMS/neofrag-theme-dungeon) est un thème orienté jeux vidéo, facilement personnalisable avec un choix de couleur illimité.
 Créé par [Alessandro STIGLIANI](https://dribbble.com/nxalessandro) avec une mise en page moderne, il s'adapte pour tout type d'univers !
 
-Thème compatible avec la version **NeoFrag Alpha 0.1.5.3** minimum.
+Thème compatible avec la version **NeoFrag Alpha 0.1.6** minimum.
 
 ## Installer le thème
 

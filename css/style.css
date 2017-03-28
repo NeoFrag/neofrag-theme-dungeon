@@ -1,13 +1,13 @@
 @import url(//fonts.googleapis.com/css?family=Hind:400,300,700);
 
 body {
-	background-image: url('<?php echo $NeoFrag->config->dungeon_background ? path($NeoFrag->config->dungeon_background) : '../images/backgrounds/default.jpg'; ?>');
-	background-position: <?php echo $NeoFrag->config->dungeon_background_position; ?>;
-	background-repeat: <?php echo $NeoFrag->config->dungeon_background_repeat; ?>;
-	background-attachment: <?php echo $NeoFrag->config->dungeon_background_attachment; ?>;
-	background-color: <?php echo color2hex($NeoFrag->config->dungeon_background_color); ?>;
-	color: <?php echo $NeoFrag->config->dungeon_font_color ? color2hex($NeoFrag->config->dungeon_font_color) : '#777777'; ?>;
-	font-size: <?php echo $NeoFrag->config->dungeon_font_size ? $NeoFrag->config->dungeon_font_size : '14px'; ?>;
+	background-image: url('<?php echo $this->config->dungeon_background ? path($this->config->dungeon_background) : '../images/backgrounds/default.jpg'; ?>');
+	background-position: <?php echo $this->config->dungeon_background_position; ?>;
+	background-repeat: <?php echo $this->config->dungeon_background_repeat; ?>;
+	background-attachment: <?php echo $this->config->dungeon_background_attachment; ?>;
+	background-color: <?php echo color2hex($this->config->dungeon_background_color); ?>;
+	color: <?php echo $this->config->dungeon_font_color ? color2hex($this->config->dungeon_font_color) : '#777777'; ?>;
+	font-size: <?php echo $this->config->dungeon_font_size ? $this->config->dungeon_font_size : '14px'; ?>;
 	font-family: 'Hind', sans-serif;
 	line-height: 1.6;
 }
@@ -24,7 +24,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	text-decoration: none;
 }
 
@@ -83,7 +83,7 @@ a:hover, a:focus {
 }
 
 .module .panel-default .btn-link:hover {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?> !important;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?> !important;
 	text-decoration: none;
 }
 
@@ -102,7 +102,7 @@ a:hover, a:focus {
 }
 
 .btn.btn-primary {
-	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?> !important;
+	background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?> !important;
 	color: #fff;
 }
 
@@ -116,18 +116,18 @@ a:hover, a:focus {
 
 a.thumbnail:hover,
 a.thumbnail:focus {
-	border-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	border-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 /* Header */
 
 header > .header-banner {
-	background-image: url('<?php echo $NeoFrag->config->dungeon_header ? path($NeoFrag->config->dungeon_header) : '../images/headers/default.jpg'; ?>');
-	background-position: <?php echo $NeoFrag->config->dungeon_header_position; ?>;
-	background-repeat: <?php echo $NeoFrag->config->dungeon_header_repeat; ?>;
-	background-attachment: <?php echo $NeoFrag->config->dungeon_header_attachment; ?>;
-	background-color: <?php echo $NeoFrag->config->dungeon_header_color; ?>;
-	margin-top: <?php echo $NeoFrag->config->dungeon_navbar_display ? ' 53px' : '0'; ?>;
+	background-image: url('<?php echo $this->config->dungeon_header ? path($this->config->dungeon_header) : '../images/headers/default.jpg'; ?>');
+	background-position: <?php echo $this->config->dungeon_header_position; ?>;
+	background-repeat: <?php echo $this->config->dungeon_header_repeat; ?>;
+	background-attachment: <?php echo $this->config->dungeon_header_attachment; ?>;
+	background-color: <?php echo $this->config->dungeon_header_color; ?>;
+	margin-top: <?php echo $this->config->dungeon_navbar_display ? ' 53px' : '0'; ?>;
 }
 
 header > nav.navbar-default.navbar-user {
@@ -160,7 +160,7 @@ header > nav.navbar-default.navbar-user .navbar-text {
 }
 
 header > nav.navbar-default.navbar-user .navbar-text > a {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	text-decoration: none;
 }
 
@@ -190,7 +190,7 @@ header > nav.navbar-default ul.navbar-account > li.login > a > i.fa {
 }
 
 header > nav.navbar-default ul.navbar-account > li.login > a:hover {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 header > nav.navbar-default ul.navbar-account > li.login > a > .avatar {
@@ -203,13 +203,13 @@ header > nav.navbar-default ul.navbar-account > li.login > a > .avatar {
 
 header > nav.navbar-default ul.navbar-account > li.active > a {
 	color: #fff;
-	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	padding-top: 18px;
 }
 
 header > nav.navbar-default ul.navbar-account > li.active > a:hover {
 	color: #fff;
-	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 header > nav.navbar-default ul.navbar-account > li.active > a > i.fa {
@@ -250,7 +250,7 @@ header .navbar-nav .dropdown-menu > li > a:focus {
 
 header .navbar-nav .dropdown-menu > li > a:hover > i.fa ,
 header .navbar-nav .dropdown-menu > li > a:focus > i.fa {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 ul.navbar-account span.caret {
@@ -270,7 +270,7 @@ ul.navbar-account span.caret {
 }
 
 .widget-header h5.site-description {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	font-size: 16px;
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-weight: bold;
@@ -298,11 +298,11 @@ header .widget-navigation ul.navbar-nav > li > a {
 
 header .widget-navigation ul.navbar-nav > li > a:hover,
 header .widget-navigation ul.navbar-nav > li > a:focus {
-	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 header .widget-navigation ul.navbar-nav > li.active > a {
-	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 header .widget-navigation ul.navbar-nav > li.active > a > i.fa {
@@ -429,7 +429,7 @@ header > .header-banner .row-dark {
 	}
 	
 	.widget .panel.panel-default > .panel-heading > h3.panel-title {
-		color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	}
 	
 	.widget .panel.panel-default > .panel-heading > h3.panel-title > i.fa {
@@ -458,7 +458,7 @@ header > .header-banner .row-dark {
 	}
 	
 	.widget .panel.panel-default .list-group > .list-group-item > a:hover, .widget .panel.panel-default .list-group > a.list-group-item:hover {
-		color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	}
 	
 	.widget .panel.panel-default > .panel-body a {
@@ -466,7 +466,7 @@ header > .header-banner .row-dark {
 	}
 	
 	.widget .panel.panel-default a:hover {
-		color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	}
 	
 	.widget .panel.panel-default .panel-footer {
@@ -490,7 +490,7 @@ header > .header-banner .row-dark {
 	}
 	
 	.widget .panel.panel-header > .panel-heading {
-		background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 		padding: 18px 20px;
 		background-position: bottom center;
 		background-repeat: repeat-x;
@@ -528,7 +528,7 @@ header > .header-banner .row-dark {
 	}
 	
 	.widget .panel.panel-header .list-group > .list-group-item > a:hover, .widget .panel.panel-header .list-group > a.list-group-item:hover {
-		color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	}
 	
 	.widget .panel.panel-header > .panel-body a {
@@ -536,7 +536,7 @@ header > .header-banner .row-dark {
 	}
 	
 	.widget .panel.panel-header a:hover {
-		color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	}
 	
 	.widget .panel.panel-header .panel-footer {
@@ -555,12 +555,12 @@ header > .header-banner .row-dark {
 	/* panel-color */
 	
 	.widget .panel.panel-color {
-		background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 		color: #fff;
 	}
 	
 	.widget .panel.panel-color > .panel-heading {
-		background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 		padding: 20px 20px 16px;
 	}
 	
@@ -577,7 +577,7 @@ header > .header-banner .row-dark {
 	}
 	
 	.widget .panel.panel-color .list-group > .list-group-item {
-		background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 		border: 2px solid rgba(0,0,0,.13);
 		padding: 12px 15px 8px;
 	}
@@ -600,7 +600,7 @@ header > .header-banner .row-dark {
 	}
 	
 	.widget .panel.panel-color .panel-footer {
-		background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 		background-image: url('../images/shadow.png');
 		color: #f0f0f0;
 	}
@@ -627,7 +627,7 @@ header > .header-banner .row-dark {
 	}
 	
 	.widget.widget-teams .panel.panel-color .roster > .roster-name a:hover {
-		color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+		color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	}
 
 /* Breadcrumb */
@@ -647,7 +647,7 @@ ol.breadcrumb > li > a {
 }
 
 ol.breadcrumb > li.active > a > i.fa {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 ol.breadcrumb > li > a:hover {
@@ -722,7 +722,7 @@ ol.breadcrumb > li + li::before {
 }
 
 .panel-box > .box-heading .icon {
-	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	color: #fff;
 	display: table-cell;
 	width: 60px;
@@ -790,7 +790,7 @@ ol.breadcrumb > li + li::before {
 }
 
 .module .panel.panel-dark > .panel-heading > h3.panel-title {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 .module .panel.panel-dark > .panel-heading > h3.panel-title > i.fa {
@@ -819,7 +819,7 @@ ol.breadcrumb > li + li::before {
 }
 
 .module .panel.panel-dark .list-group > .list-group-item > a:hover, .module .panel.panel-dark .list-group > a.list-group-item:hover {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 .module .panel.panel-dark > .panel-body a {
@@ -827,7 +827,7 @@ ol.breadcrumb > li + li::before {
 }
 
 .module .panel.panel-dark a:hover {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 .module .panel.panel-dark .panel-footer {
@@ -855,7 +855,7 @@ ol.breadcrumb > li + li::before {
 
 .panel-box > .box-heading .autor .share {
 	border-radius: 5px;
-	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	color: #fff;
 	-moz-box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,.1);
 	-webkit-box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,.1);
@@ -888,7 +888,7 @@ ol.breadcrumb > li + li::before {
 }
 
 .panel-box > .box-heading .autor .share.alt i.fa:hover {
-	background-color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	background-color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	color: #fff;
 }
 
@@ -945,7 +945,7 @@ ol.breadcrumb > li + li::before {
 
 .panel-box > .box-heading .autor ul.list-inline > li a:hover,
 .panel-box > .box-heading .autor ul.list-inline > li a:focus {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 .panel-box > .box-body {
@@ -981,7 +981,7 @@ ol.breadcrumb > li + li::before {
 }
 
 .module .panel-heading > h3.panel-title > i.fa {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	margin-right: 10px;
 	vertical-align: baseline;
 }
@@ -1088,11 +1088,11 @@ ol.breadcrumb > li + li::before {
 }
 
 .module-forum .panel-box .subforums li a:hover {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 .module-forum .panel-box table.table tbody.forum-content h4 > a {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 	text-transform: uppercase;
 	font-weight: bold;
 	font-family: 'Hind', sans-serif;
@@ -1104,7 +1104,7 @@ ol.breadcrumb > li + li::before {
 }
 
 .module-forum .last-message a {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 .module-forum .panel-box table.table tbody.forum-content h4 > a:hover, .module-forum .last-message a:hover {
@@ -1131,7 +1131,7 @@ ol.breadcrumb > li + li::before {
 
 .module-forum .forum-heading th i.fa {
 	margin-right: 5px;
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 /* Formulaire */
@@ -1287,7 +1287,7 @@ footer .copyleft .text-muted {
 }
 
 footer .copyleft a {
-	color: <?php echo $NeoFrag->config->dungeon_theme_color ? color2hex($NeoFrag->config->dungeon_theme_color) : '#fcb73e'; ?>;
+	color: <?php echo $this->config->dungeon_theme_color ? color2hex($this->config->dungeon_theme_color) : '#fcb73e'; ?>;
 }
 
 footer .copyleft a:hover, footer .copyleft a:focus {

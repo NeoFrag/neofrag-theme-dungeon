@@ -18,14 +18,14 @@
 							<?php echo $forum['icon']; ?>
 						</td>
 						<td class="col-md-6">
-							<h4 class="no-margin"><a href="<?php echo url('forum/'.$forum['forum_id'].'/'.url_title($forum['title']).'.html'); ?>"><?php echo $forum['title']; ?></a></h4>
+							<h4 class="no-margin"><a href="<?php echo url('forum/'.$forum['forum_id'].'/'.url_title($forum['title'])); ?>"><?php echo $forum['title']; ?></a></h4>
 							<?php if ($forum['description']) echo '<div style="text-transform: none;">'.$forum['description'].'</div>'; ?>
 							<?php
 							if (!empty($forum['subforums'])):
 								echo '<ul class="subforums">';
 								foreach ($forum['subforums'] as $subforum):
 									echo '<li>'.
-											$subforum['icon'].' <a href="'.url('forum/'.$subforum['forum_id'].'/'.url_title($subforum['title']).'.html').'">'.$subforum['title'].'</a>'.
+											$subforum['icon'].' <a href="'.url('forum/'.$subforum['forum_id'].'/'.url_title($subforum['title'])).'">'.$subforum['title'].'</a>'.
 										'</li>';
 								endforeach;
 								echo '</ul>';
@@ -45,11 +45,11 @@
 							<?php if ($forum['last_title']): ?>
 							<div class="media last-message">
 								<div class="media-left">
-									<?php echo $NeoFrag->user->avatar($forum['avatar'], $forum['sex'], $forum['user_id'], $forum['username']); ?>
+									<?php echo $this->user->avatar($forum['avatar'], $forum['sex'], $forum['user_id'], $forum['username']); ?>
 								</div>
 								<div class="media-body">
-									<h5 class="media-heading"><a href="<?php echo url('forum/topic/'.$forum['topic_id'].'/'.url_title($forum['last_title']).($forum['last_count_messages'] > $NeoFrag->config->forum_messages_per_page ? '/page/'.ceil($forum['last_count_messages'] / $NeoFrag->config->forum_messages_per_page) : '').'.html#message_'.$forum['last_message_id']); ?>"><i class="fa fa-comment-o"></i> <?php echo str_shortener($forum['last_title'], 40); ?></a></h5>
-									<?php echo icon('fa-user').' '.($forum['user_id'] ? $NeoFrag->user->link($forum['user_id'], $forum['username']) : '<i>Visiteur</i>').' '.icon('fa-clock-o').' '.time_span($forum['last_message_date']); ?>
+									<h5 class="media-heading"><a href="<?php echo url('forum/topic/'.$forum['topic_id'].'/'.url_title($forum['last_title']).($forum['last_count_messages'] > $this->config->forum_messages_per_page ? '/page/'.ceil($forum['last_count_messages'] / $this->config->forum_messages_per_page) : '').'#'.$forum['last_message_id']); ?>"><i class="fa fa-comment-o"></i> <?php echo str_shortener($forum['last_title'], 40); ?></a></h5>
+									<?php echo icon('fa-user').' '.($forum['user_id'] ? $this->user->link($forum['user_id'], $forum['username']) : '<i>Visiteur</i>').' '.icon('fa-clock-o').' '.time_span($forum['last_message_date']); ?>
 								</div>
 							</div>
 							<?php else: ?>

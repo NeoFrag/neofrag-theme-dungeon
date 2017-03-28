@@ -22,45 +22,23 @@ class o_m_teams_c_index extends m_teams_c_index
 {
 	public function index()
 	{
-		$panels = array();
+		$panels = [];
 		
 		foreach ($this->model()->get_teams() as $team)
 		{
-			$panel = array(
-				'title'   => '<a href="'.$this->config->base_url.'teams/'.$team['team_id'].'/'.$team['name'].'.html">'.$team['title'].'</a>',
-				'content' => '<div class="panel-box" style="border-bottom: none;"><div class="box-heading"><div class="box-infos"><div class="autor"><ul class="list-inline" style="margin-left: 0;"><li><i class="fa fa-users"></i> '.($team['users'] > 1 ? 'Joueurs' : 'Joueur').' :&nbsp;&nbsp;<span style="color: #f0f0f0;">'.$team['users'].'</span></li><li><i class="fa fa-gamepad"></i> Jeu :&nbsp;&nbsp;<span style="color: #f0f0f0;">'.$team['game_title'].'</span></li></ul></div></div></div></div>',
-				'body'    => FALSE
-			);
-			
-			if ($team['image_id'])
-			{
-				$panel['content'] .= $this->load->view('teams', array(
-					'team_id' => $team['team_id'],
-					'name'    => $team['name'],
-					'image'   => $team['image_id']
-				));
-			}
-			
-			if ($team['icon_id'] || $team['game_icon'])
-			{
-				$panel['title'] = '<img src="'.path($team['icon_id'] ?: $team['game_icon']).'" alt="" /> '.$panel['title'];
-			}
-			else
-			{
-				$panel['icon'] = 'fa-gamepad';
-			}
-			
-			$panels[] = new Panel($panel);
+			$body = '<div class="panel-box" style="border-bottom: none;"><div class="box-heading"><div class="box-infos"><div class="autor"><ul class="list-inline" style="margin-left: 0;"><li><i class="fa fa-users"></i> '.($team['users'] > 1 ? 'Joueurs' : 'Joueur').' :&nbsp;&nbsp;<span style="color: #f0f0f0;">'.$team['users'].'</span></li><li><i class="fa fa-gamepad"></i> Jeu :&nbsp;&nbsp;<span style="color: #f0f0f0;">'.$team['game_title'].'</span></li></ul></div></div></div></div>';
+
+			$panels[] = $this->panel()	->heading($team['title'], $team['icon_id'] ?: $team['game_icon'] ?: 'fa-gamepad', 'teams/'.$team['team_id'].'/'.$team['name'])
+									->footer(icon('fa-users').' '.$this->lang('player', $team['users'], $team['users']))
+									->body($body.($team['image_id'] ? '<a href="'.url('teams/'.$team['team_id'].'/'.$team['name']).'"><img class="img-responsive" src="'.path($team['image_id']).'" alt="" /></a>' : ''), FALSE);
 		}
-		
+
 		if (empty($panels))
 		{
-			$panels[] = new Panel(array(
-				'title'   => 'Équipes',
-				'icon'    => 'fa-gamepad',
-				'style'   => 'panel-info',
-				'content' => '<div class="text-center">Aucune équipe n\'a été créée pour le moment</div>'
-			));
+			$panels[] = $this	->panel()
+								->heading($this->lang('teams'), 'fa-gamepad')
+								->body('<div class="text-center">'.$this->lang('no_team_yet').'</div>')
+								->color('info');
 		}
 
 		return $panels;
@@ -68,6 +46,6 @@ class o_m_teams_c_index extends m_teams_c_index
 }
 
 /*
-Dungeon theme 1.0 for NeoFrag Alpha 0.1.2
+Dungeon theme 1.4 for NeoFrag Alpha 0.1.6
 ./themes/dungeon/overrides/modules/teams/controllers/index.php
 */
