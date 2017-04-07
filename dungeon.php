@@ -37,8 +37,8 @@ class t_dungeon extends Theme
 	public $link        = 'https://github.com/NeoFragCMS/neofrag-theme-dungeon';
 	public $author      = '<a href="https://dribbble.com/NxAlessandro" target="_blank">Alessandro STIGLIANI</a>';
 	public $licence     = '<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank">Creative Commons CC BY-NC-SA 4.0</a>';
-	public $version     = '1.4';
-	public $nf_version  = '0.1.6';
+	public $version     = '1.4.1';
+	public $nf_version  = '0.1.6.1';
 	public $path        = __FILE__;
 	public $zones       = ['Header', 'Avant-contenu', 'Contenu', 'Post-contenu', 'Footer'];
 
@@ -179,17 +179,17 @@ class t_dungeon extends Theme
 								'widget' => 'user',
 								'type'   => 'index'
 							]))
-							->color('color'),
+							->style('panel-color'),
 						$this->panel_widget($this->db->insert('nf_widgets', [
 								'widget' => 'members',
 								'type'   => 'online'
 							]))
-							->color('default'),
+							->style('panel-default'),
 						$this->panel_widget($this->db->insert('nf_widgets', [
 								'widget' => 'news',
 								'type'   => 'categories'
 							]))
-							->color('default'),
+							->style('panel-default'),
 						$this->panel_widget($this->db->insert('nf_widgets', [
 								'widget'   => 'talks',
 								'type'     => 'index',
@@ -197,7 +197,7 @@ class t_dungeon extends Theme
 									'talk_id' => 2
 								])
 							]))
-							->color('header')
+							->style('panel-header')
 				)
 				->size('col-md-4')
 			)
@@ -235,7 +235,7 @@ class t_dungeon extends Theme
 						'widget' => 'forum',
 						'type'   => 'statistics'
 					]))
-					->color('header')
+					->style('panel-header')
 				)
 				->size('col-md-4'),
 				$this->col(
@@ -243,7 +243,7 @@ class t_dungeon extends Theme
 						'widget' => 'forum',
 						'type'   => 'activity'
 					]))
-					->color('header')
+					->style('panel-header')
 				)
 				->size('col-md-8')
 			)
@@ -270,6 +270,6 @@ class t_dungeon extends Theme
 }
 
 /*
-Dungeon theme 1.4 for NeoFrag Alpha 0.1.6
+Dungeon theme 1.4.1 for NeoFrag Alpha 0.1.6.1
 ./themes/dungeon/dungeon.php
 */
