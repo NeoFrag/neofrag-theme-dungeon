@@ -316,7 +316,7 @@ class t_dungeon_c_admin extends Controller
 			}
 			else
 			{
-				$this->db->where('name', 'dungeon_header')->delete('nf_settings');
+				$this->config('dungeon_header', '0', 'int');
 			}
 			
 			if ($post['logo'])
@@ -325,7 +325,7 @@ class t_dungeon_c_admin extends Controller
 			}
 			else
 			{
-				$this->db->where('name', 'dungeon_logo')->delete('nf_settings');
+				$this->config('dungeon_logo', '0', 'int');
 			}
 			
 			$this	->config('dungeon_header_repeat', $post['repeat'])
@@ -345,7 +345,7 @@ class t_dungeon_c_admin extends Controller
 			}
 			else
 			{
-				$this->db->where('name', 'dungeon_background')->delete('nf_settings');
+				$this->config('dungeon_background', '0', 'int');
 			}
 			
 			$this	->config('dungeon_background_repeat', $post['repeat'])
